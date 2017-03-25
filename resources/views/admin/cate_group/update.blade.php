@@ -11,19 +11,21 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="admin/cate_group/update/{{$cate_groups->cate_id}}" method="post">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="inputName" class="col-sm-2 control-label">Name</label>
-
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Cate_Name"
-                                       placeholder="Input Name of Categories Groups">
+                                <input type="text" class="form-control" id="Cate_Name" name="CateName"
+                                       placeholder="{{$cate_groups->cate_name}}">
                             </div>
                         </div>
                         <!-- /.box-body -->
-                        <button type="submit" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-info pull-right">Update</button>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-info " >Update</button>
+                            <a href="admin/cate_group/list" class="btn btn-default pull-right" >Cancel</a>
+                        </div>
                     </div>
                     <!-- /.box-footer -->
                 </form>

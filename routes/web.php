@@ -41,10 +41,8 @@ Route::get('news',function (){
     return view('front.news');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('index',function (){
-        return view('admin.main');
-    });
+Route::group(['prefix' => 'administrator'], function () {
+    Route::get('/','Auth\AuthController@getcheckMail');
     Route::group(['prefix' => 'categories'], function (){
         Route::get('list','CategoryController@getList');
 
@@ -63,7 +61,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('insert','CateGroupController@getInsert');
         Route::post('insert','CateGroupController@postInsert');
 
-        Route::get('update','CateGroupController@getUpdate');
+        Route::get('update/{id}','CateGroupController@getUpdate');
         Route::post('update/{id}','CateGroupController@postUpdate');
 
         Route::get('delete/{id}','CateGroupController@getDelete');
