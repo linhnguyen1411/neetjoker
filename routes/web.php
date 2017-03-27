@@ -43,6 +43,9 @@ Route::get('news',function (){
 
 Route::group(['prefix' => 'administrator'], function () {
     Route::get('/','Auth\AuthController@getcheckMail');
+    Route::post('auth','Auth\AuthController@postcheckMail');
+    Route::get('login/auth','Auth\AuthController@getcheckPass');
+    Route::post('login/auth','Auth\AuthController@postcheckPass');
     Route::group(['prefix' => 'categories'], function (){
         Route::get('list','CategoryController@getList');
 
@@ -65,5 +68,17 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::post('update/{id}','CateGroupController@postUpdate');
 
         Route::get('delete/{id}','CateGroupController@getDelete');
+    });
+
+    Route::group(['prefix'=>'users'],function(){
+        Route::get('list','UsersController@getList');
+
+        Route::get('insert','UsersController@getInsert');
+        Route::post('insert','UsersController@postInsert');
+
+        Route::get('update/{id}','UsersController@getUpdate');
+        Route::post('update/{id}','UsersController@postUpdate');
+
+        Route::get('delete/{id}','UsersController@getDelete');
     });
 });

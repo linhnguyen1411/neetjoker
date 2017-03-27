@@ -11,7 +11,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="admin/cate_group/insert" method="post">
+                <form class="form-horizontal" action="administrator/cate_group/insert" method="post">
                     @if(count($errors) > 0)
                         <div class="alert alert-danger alert-dismissible" style="width:100%">
                             <i class="glyphicon glyphicon-info-sign"></i>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <!-- /.box-body -->
-                        <a href="admin/cate_group/list" class="btn btn-default" id="btn-cancel">Cancel</a>
+                        <a href="administrator/cate_group/list" class="btn btn-default" id="btn-cancel">Cancel</a>
                         <button type="submit" class="btn btn-info pull-right" >Insert</button>
                     </div>
                     <!-- /.box-footer -->

@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $fillable = [
         'u_id','u_name', 'u_email', 'u_password','u_avatar', 'u_roles',''
     ];
-
+    protected $primaryKey ='u_id';
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,7 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'u_password', 'remember_token',
     ];
-
+    public function roles(){
+        return $this->hasOne('App\Roles','r_id','u_roles');
+    }
     public function comment(){
         return $this->hasMany('App\Comment','u_id','u_id');
     }

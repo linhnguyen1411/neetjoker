@@ -6,6 +6,7 @@
     <title>NEET Joker LockScreen</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <base href="{{asset('')}}"/>
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -29,7 +30,7 @@
         <a href="index2.html"><b>NEET</b> Joker</a>
     </div>
     <!-- User name -->
-    <div class="lockscreen-name">Who are you ?</div>
+    <div class="lockscreen-name">Welcome <span style="color: red">{{$name}}</span></div>
     @if(count($errors) > 0)
         @foreach($errors->all() as $err)
             <script>
@@ -46,15 +47,15 @@
     <div class="lockscreen-item">
         <!-- lockscreen image -->
         <div class="lockscreen-image">
-            <img src="admin/dist/img/anonymous.jpg" alt="User Image">
+            <img src="{{$avatar}}" alt="User Image">
         </div>
         <!-- /.lockscreen-image -->
 
         <!-- lockscreen credentials (contains the form) -->
-        <form class="lockscreen-credentials" action="administrator/auth" method="post">
+        <form class="lockscreen-credentials" action="administrator/login/auth" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="input-group">
-                <input type="email" name="u_email" class="form-control" placeholder="Your Email">
+                <input type="password" name="u_pass" class="form-control" placeholder="Your Password">
 
                 <div class="input-group-btn">
                     <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>

@@ -75,8 +75,8 @@
                                         <td>{{$ctg->created_at}}</td>
                                         <td>{{$ctg->updated_at}}</td>
                                         <td>
-                                            <a href="admin/cate_group/update/{{$ctg->cate_id}}" class="">Update</a>
-                                            <a href="admin/cate_group/delete/{{$ctg->cate_id}}" class=""
+                                            <a href="administrator/cate_group/update/{{$ctg->cate_id}}" class="">Update</a>
+                                            <a href="administrator/cate_group/delete/{{$ctg->cate_id}}" class=""
                                                style="padding: 20px">Delete</a>
                                         </td>
                                     </tr>

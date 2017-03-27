@@ -29,7 +29,7 @@ class CateGroupController extends Controller
         $cate->cate_name = $request->CateName;
         $cate->cate_seo = changeTitle($request->CateName);
         $cate->save();
-        return redirect('admin/cate_group/list')->with(['thongbao'=>'Thêm thành công '.$cate->cate_name]);
+        return redirect('administrator/cate_group/list')->with(['thongbao'=>'Thêm thành công '.$cate->cate_name]);
     }
 
     public function getUpdate($id){
@@ -50,13 +50,13 @@ class CateGroupController extends Controller
         $cate_group->updated_at = date("Y-m-d h:i:s");
         $cate_group->save();
 
-        return redirect('admin/cate_group/list')->with(['thongbao'=>'Update thành công']);
+        return redirect('administrator/cate_group/list')->with(['thongbao'=>'Update thành công']);
     }
 
     public function getDelete($id){
         $cate_group = CategoriesGroup::find($id);
         $cate_group->delete();
 
-        return redirect('admin/cate_group/list')->with(['thongbao'=>'Đã xóa '.$cate_group->cate_name.' thành công']);
+        return redirect('administrator/cate_group/list')->with(['thongbao'=>'Đã xóa '.$cate_group->cate_name.' thành công']);
     }
 }

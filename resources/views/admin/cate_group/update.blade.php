@@ -11,7 +11,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="admin/cate_group/update/{{$cate_groups->cate_id}}" method="post">
+                <form class="form-horizontal" action="administrator/cate_group/update/{{$cate_groups->cate_id}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="box-body">
                         <div class="form-group">
@@ -24,7 +24,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-info " >Update</button>
-                            <a href="admin/cate_group/list" class="btn btn-default pull-right" >Cancel</a>
+                            <a href="administrator/cate_group/list" class="btn btn-default pull-right" >Cancel</a>
                         </div>
                     </div>
                     <!-- /.box-footer -->
