@@ -21,7 +21,7 @@
                     alert("{{ Session::get('flash_message') }}");
                 </script>
             @endif
-            <form class="form-horizontal" action="administrator/users/update" method="post"
+            <form class="form-horizontal" action="administrator/users/update/{{$update->u_id}}" method="post"
                   enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="box-body">
