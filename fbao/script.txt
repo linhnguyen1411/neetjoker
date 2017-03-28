@@ -1,6 +1,6 @@
 //tự động like fb
-javascrip:var inputs = document.getElementsByClassName('UFILikeLink _4x9- _4x9_ UFILinkBright');
-for(var i=0; i<inputs,length;i++) {
+javascrip:var inputs = document.getElementsByClassName('UFILikeLink UFIReactionLink UFILinkBright');
+for(var i=0; i<inputs.length;i++) {
 inputs[i].click();
 }﻿
 //UFILikeLink _4x9- _4x9_ UFILinkBright
@@ -20,4 +20,12 @@ javascript:for( i = 1;i< document.getElementsByName("actions[accept]").length;i+
 javascript:var inputs = document.getElementsByClassName('_42ft _4jy0 FriendRequestAdd addButton _4jy3 _517h'); 
 for(var i=0; i<inputs.length;i++) { 
 inputs[i].click(); 
+}
+
+javascrip:var inputs = document.getElementsByClassName('UFILikeLink');
+for(var i=0; i<inputs.length;i++) {
+inputs[i].onmouseover=function(){
+	var inputs1 = document.querySelectorAll('[aria-lable="Love"]');
+	inputs1[i].click();	
+	}
 }

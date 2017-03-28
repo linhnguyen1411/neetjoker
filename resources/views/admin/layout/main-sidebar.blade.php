@@ -45,8 +45,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="administrator/index.html"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
-                    <li><a href="administrator/index2.html"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                    <li><a href="administrator/categories/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                    <li><a href="administrator/categories/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
                 </ul>
             </li>
             <li class="treeview">

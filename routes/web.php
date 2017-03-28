@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/', function () {
     return view('front.blog');
 });
@@ -68,6 +67,18 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::post('update/{id}','CateGroupController@postUpdate');
 
         Route::get('delete/{id}','CateGroupController@getDelete');
+    });
+
+    Route::group(['prefix'=>'categories'],function(){
+        Route::get('list','CategoriesController@getList');
+
+        Route::get('insert','CategoriesController@getInsert');
+        Route::post('insert','CategoriesController@postInsert');
+
+        Route::get('update/{id}','CategoriesController@getUpdate');
+        Route::post('update/{id}','CategoriesController@postUpdate');
+
+        Route::get('delete/{id}','CategoriesController@getDelete');
     });
 
     Route::group(['prefix'=>'users'],function(){
