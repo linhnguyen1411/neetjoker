@@ -57,8 +57,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="administrator/index.html"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
-                    <li><a href="administrator/index2.html"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                    <li><a href="administrator/article/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                    <li><a href="administrator/article/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -93,8 +93,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="administrator/users/lits"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
-                    <li><a href="administrator/users/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                    <li><a href="administrator/roles/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                    <li><a href="administrator/roles/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
                 </ul>
             </li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>

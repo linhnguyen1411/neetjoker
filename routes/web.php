@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/', function () {
     return view('front.blog');
 });
@@ -80,6 +81,20 @@ Route::group(['prefix' => 'administrator'], function () {
 
         Route::get('delete/{id}','CategoriesController@getDelete');
     });
+    Route::group(['prefix'=>'article'],function(){
+
+        Route::get('{$id}','ArticleController@getArticle');
+
+        Route::get('list','ArticleController@getList');
+
+        Route::get('insert','ArticleController@getInsert');
+        Route::post('insert','ArticleController@postInsert');
+
+        Route::get('update/{id}','ArticleController@getUpdate');
+        Route::post('update/{id}','ArticleController@postUpdate');
+
+        Route::get('delete/{id}','ArticleController@getDelete');
+    });
 
     Route::group(['prefix'=>'users'],function(){
         Route::get('list','UsersController@getList');
@@ -91,5 +106,20 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::post('update/{id}','UsersController@postUpdate');
 
         Route::get('delete/{id}','UsersController@getDelete');
+    });
+
+    Route::group(['prefix'=>'roles'],function (){
+        Route::get('list','RolesController@getList');
+
+        Route::get('insert','RolesController@getInsert');
+        Route::post('insert','RolesController@postInsert');
+
+        Route::get('update/{id}','RolesController@getUpdate');
+        Route::post('update/{id}','RolesController@postUpdate');
+
+        Route::get('delete/{id}','RolesController@getDelete');
+    });
+    Route::group(['prefix'=>'ajax'],function(){
+        Route::get('categories/{idCateGroup}','AjaxController@getCategories');
     });
 });

@@ -12,7 +12,7 @@
                 <div class="alert alert-danger alert-dismissible" style="width:100%">
                     <i class="glyphicon glyphicon-info-sign"></i>
                     @foreach($errors->all() as $err)
-                        {{ $err }}<br />
+                        {{ $err }}<br/>
                     @endforeach
                 </div>
             @endif
@@ -21,14 +21,16 @@
                     alert("{{ Session::get('flash_message') }}");
                 </script>
             @endif
-            <form class="form-horizontal" action="administrator/users/insert" method="post" enctype="multipart/form-data" >
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <form class="form-horizontal" action="administrator/users/insert" method="post"
+                  enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="box-body">
                     <div class="form-group" style="width: 50%">
                         <label for="inputName" class="col-sm-2 control-label">UserName</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" name="u_name" placeholder="User Name">
+                            <input type="text" class="form-control" id="inputName" name="u_name"
+                                   placeholder="User Name">
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">
@@ -42,14 +44,16 @@
                         <label for="inputPass" class="col-sm-2 control-label">Password</label>
 
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPass" name="u_pass" placeholder="Password">
+                            <input type="password" class="form-control" id="inputPass" name="u_pass"
+                                   placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">
                         <label for="inputPassAgain" class="col-sm-2 control-label">Password</label>
 
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassAgain" name="u_passAgain" placeholder="Type Password Again">
+                            <input type="password" class="form-control" id="inputPassAgain" name="u_passAgain"
+                                   placeholder="Type Password Again">
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">
@@ -60,18 +64,25 @@
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">
-                        <label for="inputRoles" class="col-sm-2 control-label">Roles</label>
+                        <label for="SelRoles" class="col-sm-2 control-label">Roles</label>
                         <div class="col-sm-10">
-                            <input type="radio" value="1" name="u_roles" checked="">Administrator &nbsp;&nbsp;&nbsp;
-                            <input type="radio" value="2" name="u_roles">Photographer &nbsp;&nbsp;&nbsp;
-                            <input type="radio" value="4" name="u_roles">User &nbsp;&nbsp;&nbsp;
-                            <input type="radio" value="3" name="u_roles">Blogger &nbsp;&nbsp;&nbsp;
+                            <select class="form-control " name="roles">
+                                @foreach($roles as $role)
+                                    <option value="{{$role->r_id}}">{{$role->r_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-11">
+                            <a href="administrator/roles/insert" style="color: red">Thêm roles mới?</a>
                         </div>
                     </div>
                     <div class="box-footer">
                         <div class="form-group" style="width: 15%">
                             <a href="administrator/cate_group/list" class="btn btn-default" id="btn-cancel">Cancel</a>
-                            <button type="submit" class="btn btn-info pull-right" >Insert</button>
+                            <button type="submit" class="btn btn-info pull-right">Insert</button>
                         </div>
                     </div>
                 </div>

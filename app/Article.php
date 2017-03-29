@@ -8,7 +8,7 @@ class Article extends Model
 {
     //
     protected $table='article';
-
+    protected $primaryKey='a_id';
     public function category(){
         return $this->belongsTo('App\Categories','c_id','c_id');
     }

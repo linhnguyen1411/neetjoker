@@ -231,10 +231,9 @@
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
-    @yield('script')
+
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery 2.2.3 -->
 <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -247,5 +246,8 @@
 <script src="admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="admin/dist/js/demo.js"></script>
+<script type="text/javascript" language="javascript" src="admin/ckeditor/ckeditor.js"></script>
+@yield('script')
+
 </body>
 </html>

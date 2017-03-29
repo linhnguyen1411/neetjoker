@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Roles;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class UsersController extends Controller
 
     public function getInsert()
     {
-        return view('admin.user.insert');
+        $roles = Roles::all();
+        return view('admin.user.insert',['roles'=>$roles]);
     }
 
     public function postInsert(Request $request)
@@ -43,7 +45,7 @@ class UsersController extends Controller
         $users->u_name = $request->u_name;
         $users->u_email = $request->u_email;
         $users->u_pass = bcrypt($request->u_pass);
-        $users->u_roles = $request->u_roles;
+        $users->u_roles = $request->roles;
 
         if ($request->hasFile('u_avatar')) {
             $file = $request->file('u_avatar');
