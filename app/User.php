@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'u_id','u_name', 'u_email', 'u_password','u_avatar', 'u_roles',''
+        'u_id','u_name', 'u_email', 'u_pass','u_avatar', 'u_roles','remember_token'
     ];
     protected $primaryKey ='u_id';
     /**
@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'u_password', 'remember_token',
+        'u_pass', 'remember_token',
     ];
     public function roles(){
         return $this->hasOne('App\Roles','r_id','u_roles');
@@ -35,5 +35,9 @@ class User extends Authenticatable
 
     public function article(){
         return $this->hasMany('App\Article','u_id','u_id');
+    }
+    public function getAuthPassword()
+    {
+        return $this->u_pass;
     }
 }

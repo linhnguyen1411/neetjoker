@@ -3,10 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\LoginRequest;
 
+/**
+ * @property Guard auth
+ */
 class AuthController extends Controller
 {
     //
@@ -32,7 +39,7 @@ class AuthController extends Controller
                     if ($level == 1) {
                         return redirect('administrator/login/auth?email=' . $authEmail);
                     } elseif ( $level != 1) {
-                        return redirect('administrator/login')->with(['flash_level' => 'danger', 'flash_message' => 'Bạn không phải là quản trị viên!']);
+                        return redirect('administrator')->with(['flash_level' => 'danger', 'flash_message' => 'Bạn không phải là quản trị viên!']);
                     } else {
 
                     }
@@ -47,12 +54,26 @@ class AuthController extends Controller
                 $name = $e->u_name;
                 $avatar ='admin/avatar/'. $e->u_avatar;
 
-                return view('admin.login',['name'=>$name,'avatar'=>$avatar]);
+                return view('admin.login',['name'=>$name,'avatar'=>$avatar,'email'=>$_GET['email']]);
             }
         }
 
     }
-    public function postcheckPass(){
+    public function postcheckPass(LoginRequest $request){
+        $login = array(
+            'u_name'=>$request->u_name,
+            'u_pass'=>$request->u_pass,
+        );
+        if (Auth::attempt($login) && Auth::user()->u_email == $_GET['email']){
+            return redirect('administrator/article/list');
+        }
+        else{
+            return back()->with(['flash_message'=>'Tên đăng nhập hoặc mật khẩu ko chính xác']);
+        }
 
+    }
+    public function logout(){
+        Auth::logout();
+        return view('admin.lock');
     }
 }

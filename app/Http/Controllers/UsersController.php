@@ -109,6 +109,7 @@ class UsersController extends Controller
     public function getDelete($id)
     {
         $delete = User::find($id);
+        $delete->delete();
         return redirect('administrator/users/list')->with(['flash_level' => 'success', 'flash_message' => 'Xóa thành viên ' . $delete->u_name . ' thành công!']);
     }
 }

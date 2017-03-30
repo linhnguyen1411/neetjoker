@@ -60,7 +60,7 @@
                         <label for="inputAvatar" class="col-sm-2 control-label">Choose Avatar</label>
 
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" id="inputAvatar">
+                            <input type="file" class="form-control" id="inputAvatar" name="u_avatar">
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">

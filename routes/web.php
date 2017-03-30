@@ -13,9 +13,8 @@
 
 
 
-Route::get('/', function () {
-    return view('front.blog');
-});
+Route::get('/', 'MainController@getIndex');
+Route::get('article/{id}','IndexArticleController@getArticle');
 
 Route::get('photos',function (){
     return view('front.photograph');
@@ -29,9 +28,7 @@ Route::get('contact_us',function (){
     return view('front.contact');
 });
 
-Route::get('article',function (){
-    return view('front.article');
-});
+
 
 Route::get('video',function (){
     return view('front.video');
@@ -42,11 +39,12 @@ Route::get('news',function (){
 });
 
 Route::group(['prefix' => 'administrator'], function () {
-    Route::get('/','Auth\AuthController@getcheckMail');
+    Route::get('login','Auth\AuthController@getcheckMail');
     Route::post('auth','Auth\AuthController@postcheckMail');
     Route::get('login/auth','Auth\AuthController@getcheckPass');
     Route::post('login/auth','Auth\AuthController@postcheckPass');
-    Route::group(['prefix' => 'categories'], function (){
+    Route::get('logout','Auth\AuthController@logout');
+    Route::group(['prefix' => 'categories','middleware'=>'adminLogin'], function (){
         Route::get('list','CategoryController@getList');
 
         Route::get('insert','CategoryController@getInsert');
@@ -58,7 +56,7 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::get('delete/{id}','CategoryController@getDelete');
     });
 
-    Route::group(['prefix' => 'cate_group'], function (){
+    Route::group(['prefix' => 'cate_group','middleware'=>'adminLogin'], function (){
         Route::get('list','CateGroupController@getList');
 
         Route::get('insert','CateGroupController@getInsert');
@@ -70,7 +68,7 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::get('delete/{id}','CateGroupController@getDelete');
     });
 
-    Route::group(['prefix'=>'categories'],function(){
+    Route::group(['prefix'=>'categories','middleware'=>'adminLogin'],function(){
         Route::get('list','CategoriesController@getList');
 
         Route::get('insert','CategoriesController@getInsert');
@@ -81,7 +79,7 @@ Route::group(['prefix' => 'administrator'], function () {
 
         Route::get('delete/{id}','CategoriesController@getDelete');
     });
-    Route::group(['prefix'=>'article'],function(){
+    Route::group(['prefix'=>'article','middleware'=>'adminLogin'],function(){
 
         Route::get('{$id}','ArticleController@getArticle');
 
@@ -96,7 +94,7 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::get('delete/{id}','ArticleController@getDelete');
     });
 
-    Route::group(['prefix'=>'users'],function(){
+    Route::group(['prefix'=>'users','middleware'=>'adminLogin'],function(){
         Route::get('list','UsersController@getList');
 
         Route::get('insert','UsersController@getInsert');
@@ -108,7 +106,7 @@ Route::group(['prefix' => 'administrator'], function () {
         Route::get('delete/{id}','UsersController@getDelete');
     });
 
-    Route::group(['prefix'=>'roles'],function (){
+    Route::group(['prefix'=>'roles','middleware'=>'adminLogin'],function (){
         Route::get('list','RolesController@getList');
 
         Route::get('insert','RolesController@getInsert');
@@ -119,7 +117,8 @@ Route::group(['prefix' => 'administrator'], function () {
 
         Route::get('delete/{id}','RolesController@getDelete');
     });
-    Route::group(['prefix'=>'ajax'],function(){
+    Route::group(['prefix'=>'ajax','middleware'=>'adminLogin'],function(){
         Route::get('categories/{idCateGroup}','AjaxController@getCategories');
     });
 });
+

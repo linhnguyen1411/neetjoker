@@ -6,6 +6,7 @@ use App\Article;
 use App\Categories;
 use App\CategoriesGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -52,7 +53,7 @@ class ArticleController extends Controller
         $insert->a_title = $request->a_title;
         $insert->seo = changeTitle($request->a_title);
         $insert->c_id = $request->SelCate;
-        $insert->u_id = "1";
+        $insert->u_id = Auth::user()->u_id;
         $insert->a_description = $request->a_description;
         $insert->a_content = $request->a_content;
         $insert->view = 0;
@@ -118,7 +119,7 @@ class ArticleController extends Controller
         $update->a_title = $request->a_title;
         $update->seo = changeTitle($request->a_title);
         $update->c_id = $request->SelCate;
-        $update->u_id = "1";
+        $update->u_id = Auth::user()->u_id;
         $update->a_description = $request->a_description;
         $update->a_content = $request->a_content;
         $update->view = 0;

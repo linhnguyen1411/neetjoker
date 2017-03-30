@@ -10,7 +10,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="administrator/article/update/{{$article->a_id}}" method="post"enctype="multipart/form-datagi">
+            <form class="form-horizontal" action="administrator/article/update/{{$article->a_id}}" method="post"enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="box-body">
                     <div class="form-group">
@@ -64,8 +64,8 @@
                         <label for="image" class="col-sm-2 control-label">Image</label>
                         <div class="col-sm-10">
                             <input type="file" id="imgInp" name="a_image">
-                            <img id="blah" src="" name="a_image" alt="your image"/>
-                            <img id="preview" src="upload/article/{{$article->a_image}}" alt="your image"/>
+                            <img id="blah" src="" alt="your image"/>
+                            <img id="preview" src="upload/article/{{$article->a_image}}" />
                             <i class="glyphicon glyphicon-info-sign" style="color: red">Chọn ảnh đại diện cho bài viết
                                 của bạn!</i>
                         </div>

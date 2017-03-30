@@ -28,3 +28,6 @@
     display: inline-block;
     margin: 3px;
 }
+.image-ind img{
+    width: 40%;
+}

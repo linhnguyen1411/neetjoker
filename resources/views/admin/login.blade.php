@@ -30,7 +30,7 @@
         <a href="index2.html"><b>NEET</b> Joker</a>
     </div>
     <!-- User name -->
-    <div class="lockscreen-name">Welcome <span style="color: red">{{$name}}</span></div>
+    <div class="lockscreen-name">Welcome <span style="color: red">{{$email}}</span></div>
     @if(count($errors) > 0)
         @foreach($errors->all() as $err)
             <script>
@@ -42,28 +42,34 @@
         <script>
             alert("{{ Session::get('flash_message') }}");
         </script>
-@endif
+    @endif
+    @if(session('thongbao'))
+        <div class="alert">
+            {{session('thongbao')}}
+        </div>
+    @endif
 <!-- START LOCK SCREEN ITEM -->
     <div class="lockscreen-item">
         <!-- lockscreen image -->
-        <div class="lockscreen-image">
-            <img src="{{$avatar}}" alt="User Image">
-        </div>
+
         <!-- /.lockscreen-image -->
 
         <!-- lockscreen credentials (contains the form) -->
-        <form class="lockscreen-credentials" action="administrator/login/auth" method="post">
+        <form class="lockscreen-credentials" action="administrator/login/auth?email={{$email}}" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <div class="input-group">
-                <input type="password" name="u_pass" class="form-control" placeholder="Your Password">
 
+            <div class="input-group">
+                <input type="text" name="u_name" class="form-control" value="" placeholder="Your Username">
+                <input type="password" name="u_pass" class="form-control" value="" placeholder="Your Password">
                 <div class="input-group-btn">
                     <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
                 </div>
             </div>
         </form>
         <!-- /.lockscreen credentials -->
-
+        <div class="lockscreen-image" style="top:-5px ;left: -25px">
+            <img src="{{$avatar}}" alt="User Image">
+        </div>
     </div>
     <!-- /.lockscreen-item -->
     <div class="help-block text-center">

@@ -28,6 +28,8 @@
             @endif
         <!-- /.box-header -->
             <div class="box-body">
+                <a class="glyphicon glyphicon-plus" href="administrator/article/insert"> Thêm bài mới nào ?</a>
+
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
 
