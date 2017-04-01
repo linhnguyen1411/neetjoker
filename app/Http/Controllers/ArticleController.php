@@ -31,7 +31,7 @@ class ArticleController extends Controller
             'a_description'=>'required|min:10|max:200',
             'a_content'=>'required',
             'a_tag'=>'required',
-            'a_image'=>'required',
+            'image'=>'required',
         ],
         [
             'a_title.required'=>'Bạn phải nhập vào tiêu đề bài viết!',
@@ -45,7 +45,7 @@ class ArticleController extends Controller
 
             'a_content.required'=>'Bài viết phải có nội dung!',
             'a_tag.required'=>'Chọn 1 vài tags cho bài viết của bạn!',
-            'a_image.required'=>'Chọn hình ảnh làm mẫu cho bài viết của bạn!'
+            'image.required'=>'Chọn hình ảnh làm mẫu cho bài viết của bạn!'
         ]);
 
         $insert = new Article;
@@ -57,8 +57,8 @@ class ArticleController extends Controller
         $insert->a_description = $request->a_description;
         $insert->a_content = $request->a_content;
         $insert->view = 0;
-        if ($request->hasFile('a_image')) {
-            $file = $request->file('a_image');
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
             $format = $file->getClientOriginalExtension();
             if ($format != 'jpg' && $format != 'png' && $format != 'jpeg') {
                 return redirect('administrator/article/insert')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);
@@ -123,8 +123,8 @@ class ArticleController extends Controller
         $update->a_description = $request->a_description;
         $update->a_content = $request->a_content;
         $update->view = 0;
-        if ($request->hasFile('a_image')) {
-            $file = $request->file('a_image');
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
             $format = $file->getClientOriginalExtension();
             if ($format != 'jpg' && $format != 'png' && $format != 'jpeg') {
                 return redirect('administrator/article/insert')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);

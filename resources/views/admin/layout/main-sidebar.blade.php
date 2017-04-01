@@ -66,6 +66,18 @@
             </li>
             <li class="treeview">
                 <a href="#">
+                    <i class="glyphicon glyphicon-picture"></i> <span>Images</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="administrator/images/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                    <li><a href="administrator/images/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="glyphicon glyphicon-pencil"></i> <span>Comment</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

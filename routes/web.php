@@ -93,7 +93,18 @@ Route::group(['prefix' => 'administrator'], function () {
 
         Route::get('delete/{id}','ArticleController@getDelete');
     });
+    Route::group(['prefix'=>'images','middleware'=>'adminLogin'],function(){
 
+        Route::get('list','ImagesController@getList');
+
+        Route::get('insert','ImagesController@getInsert');
+        Route::post('insert','ImagesController@postInsert');
+
+        Route::get('update/{id}','ImagesController@getUpdate');
+        Route::post('update/{id}','ImagesController@postUpdate');
+
+        Route::get('delete/{id}','ImagesController@getDelete');
+    });
     Route::group(['prefix'=>'users','middleware'=>'adminLogin'],function(){
         Route::get('list','UsersController@getList');
 

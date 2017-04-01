@@ -72,8 +72,9 @@
                     <div class="form-group">
                         <label for="image" class="col-sm-2 control-label">Image</label>
                         <div class="col-sm-10">
-                            <input type="file" id="imgInp" name="a_image">
-                            <img id="blah" src="#" alt="your image" />
+                            {{--<input type="file" id="imgInp" name="a_image">--}}
+                            {{--<img id="blah" src="#" alt="your image" />--}}
+                            <div id="container_image"></div>
                             <i class="glyphicon glyphicon-info-sign" style="color: red">Chọn ảnh đại diện cho bài viết của bạn!</i>
                         </div>
                     </div>
@@ -103,21 +104,31 @@
             });
         });
     </script>
-    <script>
-        function readURL(input) {
+    {{--<script>--}}
+        {{--function readURL(input) {--}}
 
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+            {{--if (input.files && input.files[0]) {--}}
+                {{--var reader = new FileReader();--}}
 
-                reader.onload = function (e) {
-                    $('#blah').attr('src', e.target.result);
-                }
+                {{--reader.onload = function (e) {--}}
+                    {{--$('#blah').attr('src', e.target.result);--}}
+                {{--}--}}
 
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#imgInp").change(function(){
-            readURL(this);
+                {{--reader.readAsDataURL(input.files[0]);--}}
+            {{--}--}}
+        {{--}--}}
+        {{--$("#imgInp").change(function(){--}}
+            {{--readURL(this);--}}
+        {{--});--}}
+    {{--</script>--}}
+    <script type="text/javascript">
+        $("#container_image").PictureCut({
+
+            //  InputOfImageDirectory       : "image",
+            PluginFolderOnServer: "neetjoker/public/Picture-cut",
+            FolderOnServer: "/neetjoker/public/upload/",
+            EnableCrop: true,
+            CropWindowStyle: "Bootstrap"
         });
     </script>
 @endsection

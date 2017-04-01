@@ -7,6 +7,14 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <base href="{{asset('')}}">
+
+    <script src="Jcrop/js/jquery.min.js"></script>
+    <script src="jquery-ui/jquery-ui.min.js"></script>
+    <script src="Picture-cut/src/jquery.picture.cut.js"></script>
+    <link rel="stylesheet" href="Picture-cut/src/windows/JanelaBootstrap/jquery-ui-1.10.0.custom.css" type="text/css">
+    {{--<script src="Jcrop/js/Jcrop.js"></script>--}}
+    {{--<script src="Jcrop/js/Jcrop.min.js"></script>--}}
+    {{--<link rel="stylesheet" href="Jcrop/css/Jcrop.css">--}}
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -18,13 +26,19 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
-
+    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+
+     <link rel="stylesheet" href="dependencies/bootstrap-3.2.0/css/bootstrap.min.css"> <!--for bootstrap theme-->
+
+    <!-- Jcrop Import -->
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -235,7 +249,6 @@
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 2.2.3 -->
-<script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="admin/bootstrap/js/bootstrap.min.js"></script>
 <!-- Slimscroll -->
