@@ -11,11 +11,11 @@
                         <h1 class="post-title">{{$article->a_title}}</h1>
                         <!-- post featured -->
                         <div class="image-wrap">
-                            <img src="upload/article/{{$article->a_image}}" alt="00212" title="00212"/>
+                            <img src="upload/article/{{$article->a_imgBlog}}" alt="00212" title="00212"/>
                         </div>
                         <p class="date">
-                            <span class="month">Sep</span>
-                            <span class="day">24</span>
+                            <span class="month">{{ date_format(date_create($article->created_at), "M") }}</span>
+                            <span class="day">{{ date_format(date_create($article->created_at), "d") }}</span>
                         </p>
                     </div>
                     <!-- post meta -->
@@ -142,7 +142,7 @@
                     <div class="recent-post group">
                         @foreach($recent as $re)
                         <div class="hentry-post group">
-                            <div class="thumb-img"><img src="" alt="001"
+                            <div class="thumb-img" ><img src="upload/article/{{$re->a_thumbnail}}" alt="001"
                                                         title="001"/></div>
                             <div class="text">
                                 <a href="article/{{$re->a_id}}" title="Section shortcodes &amp; sticky posts!" class="title">{{$re->a_title}}</a>

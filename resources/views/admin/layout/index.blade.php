@@ -11,6 +11,7 @@
     <script src="Jcrop/js/jquery.min.js"></script>
     <script src="jquery-ui/jquery-ui.min.js"></script>
     <script src="Picture-cut/src/jquery.picture.cut.js"></script>
+
     <link rel="stylesheet" href="Picture-cut/src/windows/JanelaBootstrap/jquery-ui-1.10.0.custom.css" type="text/css">
     {{--<script src="Jcrop/js/Jcrop.js"></script>--}}
     {{--<script src="Jcrop/js/Jcrop.min.js"></script>--}}

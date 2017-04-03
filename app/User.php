@@ -36,6 +36,9 @@ class User extends Authenticatable
     public function article(){
         return $this->hasMany('App\Article','u_id','u_id');
     }
+    public function photos(){
+        return $this->hasMany('App\Images','u_id','u_id');
+    }
     public function getAuthPassword()
     {
         return $this->u_pass;

@@ -30,6 +30,18 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
                 <a href="#">
+                    <i class="glyphicon glyphicon-edit"></i> <span>Slider</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="administrator/slider/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                    <li><a href="administrator/slider/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="glyphicon glyphicon-th-list"></i> <span>Categories Group</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

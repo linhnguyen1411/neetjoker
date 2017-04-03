@@ -226,6 +226,7 @@ $(function () {
                 CropModes: {
                     widescreen: true,
                     letterbox: true,
+                    thumbnail: true,
                     free: true
                 },
                 CropOrientation: true,
@@ -353,6 +354,7 @@ $(function () {
                             }
                             ;
                             if (Options.CropModes.widescreen) ElemSelectProporcao.append($('<option value="wide">16:9</option>'));
+                            if (Options.CropModes.thumbnail) ElemSelectProporcao.append($('<option value="config">thumbnail</option>'));
                             if (Options.CropModes.letterbox) ElemSelectProporcao.append($('<option value="box">4:3</option>'));
                             if (Options.CropModes.free) ElemSelectProporcao.append($('<option value="livre">Free</option>'));
                             if (Options.CropModes.widescreen || Options.CropModes.letterbox && (Options.CropOrientation)) {
@@ -390,7 +392,13 @@ $(function () {
                                     InitRatio = 16 / 9;
                                     Swidth = (response.currentWidth / 100) * 80;
                                     Sheight = (Swidth / 16) * 9
-                                } else {
+                                }
+                                if (ElemSelectProporcao.val()=="thumbnail"){
+                                    InitRatio = 1/1;
+                                    Swidth = (response.currentWidth/100)*20;
+                                    Sheight = (Swidth/1)*1;
+                                }
+                                else {
                                     InitRatio = 4 / 3;
                                     Swidth = (response.currentWidth / 100) * 80;
                                     Sheight = (Swidth / 4) * 3

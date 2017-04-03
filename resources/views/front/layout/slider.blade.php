@@ -9,8 +9,8 @@
                     rutrum, neque non pulvinar faucibus, ligula eros viverra ligula, et aliquam libero neque ac
                     nisl.</p>
                 <p>&nbsp;</p>
-                <span class="special-font" style="font-size:24px;">prices from
-				                <span style="font-size: 50px;">$45</span></span>
+                <span class="special-font" style="font-size:24px;">Giá chỉ từ
+				                <span style="font-size: 50px;">200k</span></span>
             </div>
         </li>
         <li>
@@ -21,6 +21,9 @@
                 <p>Curabitur pharetra accumsan sem, ac accumsan sapien tincidunt a. In hac habitasse platea
                     dictumst. Donec lobortis purus ullamcorper risus posuere non euismod mi scelerisque. Nullam
                     tincidunt varius metus sed elementum</p>
+                    <p>&nbsp;</p>
+                <span class="special-font" style="font-size:24px;">prices from
+				                <span style="font-size: 50px;">200k</span></span>
             </div>
         </li>
         <li>
@@ -30,6 +33,9 @@
                 <h4></h4>
                 <p>Nam sagittis justo eget nunc hendrerit et semper magna feugiat. Proin eu dui ut elit auctor
                     vehicula. Integer ut dui vitae felis venenatis dapibus.</p>
+                <p>&nbsp;</p>
+                <span class="special-font" style="font-size:24px;">prices from
+				                <span style="font-size: 50px;">$45</span></span>
             </div>
         </li>
     </ul>

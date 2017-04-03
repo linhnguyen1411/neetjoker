@@ -30,8 +30,8 @@
                                 </p>
                             </div>
                             <!-- post featured -->
-                            <div class="image-wrap " style="width: 40%">
-                                <img src="upload/article/{{$post->a_image}}" alt="001" title="001"/>
+                            <div class="image-wrap ">
+                                <img src="upload/article/{{$post->a_img}}" alt="001" title="001"/>
                             </div>
                         </div>
                         <!-- post content -->
@@ -44,8 +44,21 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="general-pagination group"><a href="#" class="selected">1</a><a href="#">2</a><a
-                            href="#">&rsaquo;</a></div>
+                <div class="general-pagination group">
+                    @if($posts->currentPage() != 1)
+                        <a class="prev page-numbers" href="{!! $posts->url($posts->currentPage()-1) !!}">Prev</a>
+                    @endif
+                    @for($i = 1; $i<=  $posts->lastPage() ; $i =$i +1 )
+                        @if($posts->currentPage()==$i)
+                            <a href="" class="selected">{!! $i !!}</a>
+                        @else
+                            <a href='{!! $posts->url($i) !!}'>{!! $i !!}</a>
+                        @endif
+                    @endfor
+                    @if($posts->currentPage() != $posts->lastPage())
+                        <a class="next page-numbers" href="{!! $posts->url($posts->currentPage()+1) !!}">Next</a>
+                    @endif
+                </div>
 
             </div>
             <!-- END CONTENT -->
@@ -54,119 +67,53 @@
                 <div class="widget-first widget recent-posts">
                     <h3>Tin tức</h3>
                     <div class="recent-post group">
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/001-55x55.png" alt="001"
-                                                        title="001"/></div>
-                            <div class="text">
-                                <a href="article" title="Section shortcodes &amp; sticky posts!" class="title">Section
-                                    shortcodes &amp; sticky posts!</a>
-                                <p>Fusce nec accumsan eros. Aenean ac orci a magna vestibulum </p>
-                                <a class="read-more" href="article.html">&rarr; Read More</a>
+                        @foreach($tintuc as $tt)
+                            <div class="hentry-post group">
+                                <div class="thumb-img"><img src="upload/article/{{$tt->a_thumbnail}}" alt="001"
+                                                            title="001"/></div>
+                                <div class="text">
+                                    <a href="article/{{$tt->a_id}}" title="Section shortcodes &amp; sticky posts!"
+                                       class="title">{{$tt->a_title}}</a>
+                                    <p>{{$tt->a_description}}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/003-55x55.jpg" alt="003"
-                                                        title="003"/></div>
-                            <div class="text">
-                                <a href="article.html" title="Nice &amp; Clean. The best for your blog!"
-                                   class="title">Nice
-                                    &amp; Clean. The best for your blog!</a>
-                                <p>Fusce nec accumsan eros. Aenean ac orci a magna vestibulum </p>
-                                <a class="read-more" href="article">&rarr; Read More</a>
-                            </div>
-                        </div>
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/0037-55x55.jpg" alt="0037"
-                                                        title="0037"/></div>
-                            <div class="text">
-                                <a href="article" title="Another theme by YIThemes!" class="title">Another
-                                    theme by
-                                    YIThemes!</a>
-                                <p>Quisque pharetra, risus sit amet vestibulum consequat, elit arcu ultrices </p>
-                                <a class="read-more" href="article">&rarr; Read More</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
-            <div class="sidebar group">
                 <div class="widget-first widget recent-posts">
                     <h3>Tin game</h3>
                     <div class="recent-post group">
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/001-55x55.png" alt="001"
-                                                        title="001"/></div>
-                            <div class="text">
-                                <a href="article" title="Section shortcodes &amp; sticky posts!" class="title">Section
-                                    shortcodes &amp; sticky posts!</a>
-                                <p>Fusce nec accumsan eros. Aenean ac orci a magna vestibulum </p>
-                                <a class="read-more" href="article.html">&rarr; Read More</a>
+                        @foreach($tingame as $tg)
+                            <div class="hentry-post group">
+                                <div class="thumb-img"><img src="upload/article/{{$tg->a_thumbnail}}" alt="001"
+                                                            title="001"/></div>
+                                <div class="text">
+                                    <a href="article/{{$tg->a_id}}" title="Section shortcodes &amp; sticky posts!"
+                                       class="title">{{$tg->a_title}}</a>
+                                    <p>{{$tg->a_description}}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/003-55x55.jpg" alt="003"
-                                                        title="003"/></div>
-                            <div class="text">
-                                <a href="article.html" title="Nice &amp; Clean. The best for your blog!"
-                                   class="title">Nice
-                                    &amp; Clean. The best for your blog!</a>
-                                <p>Fusce nec accumsan eros. Aenean ac orci a magna vestibulum </p>
-                                <a class="read-more" href="article">&rarr; Read More</a>
-                            </div>
-                        </div>
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/0037-55x55.jpg" alt="0037"
-                                                        title="0037"/></div>
-                            <div class="text">
-                                <a href="article" title="Another theme by YIThemes!" class="title">Another
-                                    theme by
-                                    YIThemes!</a>
-                                <p>Quisque pharetra, risus sit amet vestibulum consequat, elit arcu ultrices </p>
-                                <a class="read-more" href="article">&rarr; Read More</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
-            <div class="sidebar group">
                 <div class="widget-first widget recent-posts">
                     <h3>Blog</h3>
                     <div class="recent-post group">
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/001-55x55.png" alt="001"
-                                                        title="001"/></div>
-                            <div class="text">
-                                <a href="article" title="Section shortcodes &amp; sticky posts!" class="title">Section
-                                    shortcodes &amp; sticky posts!</a>
-                                <p>Fusce nec accumsan eros. Aenean ac orci a magna vestibulum </p>
-                                <a class="read-more" href="article.html">&rarr; Read More</a>
+                        @foreach($blog as $b)
+                            <div class="hentry-post group">
+                                <div class="thumb-img"><img src="upload/article/{{$b->a_thumbnail}}" alt="001"
+                                                            title="001"/></div>
+                                <div class="text">
+                                    <a href="article/{{$b->a_id}}" title="Section shortcodes &amp; sticky posts!"
+                                       class="title">{{$b->a_title}}</a>
+                                    <p>{{$b->a_description}}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/003-55x55.jpg" alt="003"
-                                                        title="003"/></div>
-                            <div class="text">
-                                <a href="article.html" title="Nice &amp; Clean. The best for your blog!"
-                                   class="title">Nice
-                                    &amp; Clean. The best for your blog!</a>
-                                <p>Fusce nec accumsan eros. Aenean ac orci a magna vestibulum </p>
-                                <a class="read-more" href="article">&rarr; Read More</a>
-                            </div>
-                        </div>
-                        <div class="hentry-post group">
-                            <div class="thumb-img"><img src="front/images/articles/0037-55x55.jpg" alt="0037"
-                                                        title="0037"/></div>
-                            <div class="text">
-                                <a href="article" title="Another theme by YIThemes!" class="title">Another
-                                    theme by
-                                    YIThemes!</a>
-                                <p>Quisque pharetra, risus sit amet vestibulum consequat, elit arcu ultrices </p>
-                                <a class="read-more" href="article">&rarr; Read More</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="sidebar-no">
@@ -187,134 +134,47 @@
                         </div>
                         <div id="portfolio-gallery" class="internal_page_items internal_page_gallery">
                             <ul class="gallery-wrap image-grid group">
-                                <li data-id="id-1" class="brandidentity logodesign one-fourth">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0092-260x168.jpg" alt="0092" title="0092">
-                                            <div class="overlay" style="opacity: 0; display: none;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0092.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Guanacos</span>
+                                <?php $count = 0 ?>
+                                @foreach($photos as $photo)
+                                    <?php $count++ ?>
+                                    @if($count%4==0)
+                                        <li  class="brandidentity logodesign one-fourth last">
+                                            <div class="internal_page_item internal_page_item_gallery">
+                                                <div class="overlay_a">
+                                                    <img src="upload/images/{{$photo->i_preview}}" alt="0092"
+                                                         title="0092">
+                                                    <div class="overlay" style="opacity: 0; display: none;">
+                                                        <a class="overlay_img cboxElement"
+                                                           href="upload/images/{{$photo->i_full}}"
+                                                           style="padding-left: 25px" rel="lightbox" title=""></a>
+                                                        <span class="overlay_title">{{$photo->user->u_name}}</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-2" class="brandidentity one-fourth">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0013-260x168.jpg" alt="0013" title="0013">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0013.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Miller Bob</span>
+                                            <div>
+                                                <p style="color: blue; font-size: 15px">{{$photo->i_title}} </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-3" class="brandidentity one-fourth">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0029-260x168.jpg" alt="0029" title="0029">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0029.jpg" style="padding-left: 25px"  rel="lightbox" title=""></a>
-
-                                                <span class="overlay_title">Vitale Premium</span>
+                                        </li>
+                                    @else
+                                        <li class="brandidentity logodesign one-fourth">
+                                            <div class="internal_page_item internal_page_item_gallery">
+                                                <div class="overlay_a">
+                                                    <img src="upload/images/{{$photo->i_preview}}" alt="0092"
+                                                         title="0092">
+                                                    <div class="overlay" style="opacity: 0; display: none;">
+                                                        <a class="overlay_img cboxElement"
+                                                           href="upload/images/{{$photo->i_full}}"
+                                                           style="padding-left: 25px" rel="lightbox" title=""></a>
+                                                        <span class="overlay_title">{{$photo->user->u_name}}</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-4" class="brandidentity one-fourth last">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0038-260x168.jpg" alt="0038" title="0038">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0038.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Nili Studios</span>
+                                            <div>
+                                                <p style="color: blue; font-size: 15px">{{$photo->i_title}} </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-5" class="brandidentity one-fourth">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0045-260x168.jpg" alt="0045" title="0045">
-                                            <div class="overlay" style="opacity: 0; display: none;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0045.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Digitpool Medien</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-
-                                </li>
-                                <li data-id="id-6" class="digitalpainting one-fourth">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0054-260x168.jpg" alt="0054" title="0054">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0054.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Colorful Oktopus</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-7" class="digitalpainting one-fourth">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0063-260x168.jpg" alt="0063" title="0063">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0063.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Black Mamba</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-8" class="logodesign one-fourth last">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0073-260x168.jpg" alt="0073" title="0073">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0073.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Kineda</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
-                                <li data-id="id-9" class="logodesign one-fourth last">
-                                    <div class="internal_page_item internal_page_item_gallery">
-                                        <div class="overlay_a">
-                                            <img src="front/images/projects/0073-260x168.jpg" alt="0073" title="0073">
-                                            <div class="overlay" style="opacity: 0;">
-                                                <a class="overlay_img cboxElement" href="front/images/projects/0073.jpg" style="padding-left: 25px" rel="lightbox" title=""></a>
-                                                <span class="overlay_title">Kineda</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p style="color: blue; font-size: 15px">caption của ảnh 1 thử có bị vỡ css ko nhé </p>
-                                    </div>
-                                </li>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </ul>
                             <div class="clear"></div>
                         </div>

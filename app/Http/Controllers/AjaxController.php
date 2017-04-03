@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use Illuminate\Http\Request;
+use ImageResize;
+use Psy\Exception\Exception;
 
 class AjaxController extends Controller
 {
@@ -15,5 +17,12 @@ class AjaxController extends Controller
 
             echo  "<option value='" . $category->c_id . "'>". $category->c_name ."</option>";
         }
+    }
+
+    /**
+     *
+     */
+    public function ImagePreview($data){
+        dd($data);
     }
 }

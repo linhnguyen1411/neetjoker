@@ -7,6 +7,7 @@ use App\Categories;
 use App\CategoriesGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ArticleController extends Controller
 {
@@ -31,7 +32,7 @@ class ArticleController extends Controller
             'a_description'=>'required|min:10|max:200',
             'a_content'=>'required',
             'a_tag'=>'required',
-            'image'=>'required',
+            'Img'=>'required',
         ],
         [
             'a_title.required'=>'Bạn phải nhập vào tiêu đề bài viết!',
@@ -45,11 +46,10 @@ class ArticleController extends Controller
 
             'a_content.required'=>'Bài viết phải có nội dung!',
             'a_tag.required'=>'Chọn 1 vài tags cho bài viết của bạn!',
-            'image.required'=>'Chọn hình ảnh làm mẫu cho bài viết của bạn!'
+            'Img.required'=>'Chọn hình ảnh làm mẫu cho bài viết của bạn!'
         ]);
-
         $insert = new Article;
-
+        $insert->cate_id = $request->SelCateGroup;
         $insert->a_title = $request->a_title;
         $insert->seo = changeTitle($request->a_title);
         $insert->c_id = $request->SelCate;
@@ -57,8 +57,8 @@ class ArticleController extends Controller
         $insert->a_description = $request->a_description;
         $insert->a_content = $request->a_content;
         $insert->view = 0;
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        if ($request->hasFile('Img')) {
+            $file = $request->file('Img');
             $format = $file->getClientOriginalExtension();
             if ($format != 'jpg' && $format != 'png' && $format != 'jpeg') {
                 return redirect('administrator/article/insert')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);
@@ -70,6 +70,18 @@ class ArticleController extends Controller
             }
             $file->move("upload/article/", $image);
             $insert->a_image = $image;
+            $blog =Image::make(public_path("upload\\article\\".$image))->resize(816,282);//big image article.html
+            $bigPic = "bigPic_".$image;
+            $blog-> save($blog->dirname.'\\'.$bigPic);
+            $insert->a_imgBlog = $bigPic;
+            $img = Image::make(public_path("upload\\article\\".$image))->resize(205,185);//resize thành ảnh đại diện bài viết
+            $article = "article_".$image;
+            $img->save($img->dirname.'\\'.$article);
+            $insert->a_img = $article;
+            $img1 = Image::make(public_path("upload\\article\\".$image))->resize(55,55);//resize thành ảnh thumbnail
+            $thumbnail = "thumbnail_".$image;
+            $img1->save($img1->dirname.'\\'.$thumbnail);
+            $insert->a_thumbnail = $thumbnail;
         } else {
             $insert->a_image = "example.jpg";
         }
@@ -116,6 +128,7 @@ class ArticleController extends Controller
 //                ]);
 //        }
         $update = Article::find($id);
+        $update->cate_id = $request->SelCateGroup;
         $update->a_title = $request->a_title;
         $update->seo = changeTitle($request->a_title);
         $update->c_id = $request->SelCate;
@@ -123,8 +136,8 @@ class ArticleController extends Controller
         $update->a_description = $request->a_description;
         $update->a_content = $request->a_content;
         $update->view = 0;
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        if ($request->hasFile('a_image')) {
+            $file = $request->file('a_image');
             $format = $file->getClientOriginalExtension();
             if ($format != 'jpg' && $format != 'png' && $format != 'jpeg') {
                 return redirect('administrator/article/insert')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);
@@ -136,6 +149,18 @@ class ArticleController extends Controller
             }
             $file->move("upload/article/", $image);
             $update->a_image = $image;
+            $blog =Image::make(public_path("upload\\article\\".$image))->resize(816,282);//big image article.html
+            $bigPic = "bigPic_".$image;
+            $blog->save($blog->dirname.'\\'.$bigPic);
+            $update->a_imgBlog = $bigPic;
+            $img = Image::make(public_path("upload\\article\\".$image))->resize(205,185);//resize thành ảnh đại diện bài viết
+            $article = "article_".$image;
+            $img->save($img->dirname.'\\'.$article);
+            $update->a_img = $article;
+            $img1 = Image::make(public_path("upload\\article\\".$image))->resize(55,55);//resize thành ảnh thumbnail
+            $thumbnail = "thumbnail_".$image;
+            $img1->save($img1->dirname.'\\'.$thumbnail);
+            $update->a_thumbnail = $thumbnail;
         }
         if($request->highlight == "on"){
             $update->highlight= 1;

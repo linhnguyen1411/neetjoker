@@ -130,6 +130,7 @@ Route::group(['prefix' => 'administrator'], function () {
     });
     Route::group(['prefix'=>'ajax','middleware'=>'adminLogin'],function(){
         Route::get('categories/{idCateGroup}','AjaxController@getCategories');
+        Route::get('imagepre/{path}','AjaxController@ImagePreview');
     });
 });
 
