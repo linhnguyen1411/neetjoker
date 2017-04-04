@@ -25,7 +25,7 @@
                     <i class="glyphicon glyphicon-ok"></i>
                     {{session('thongbao')}}
                 </div>
-            @endif
+        @endif
         <!-- /.box-header -->
             <div class="box-body">
                 <a class="glyphicon glyphicon-plus" href="administrator/article/insert"> Thêm bài mới nào ?</a>
@@ -38,32 +38,53 @@
                                    aria-describedby="example1_info">
                                 <thead>
                                 <tr role="row">
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Id</th>
-                                    <th class="sorting" style="width: 15%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Article</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Categories</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">User</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Created_at</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Update_at</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Action</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">Id
+                                    </th>
+                                    <th class="sorting" style="width: 15%" tabindex="0" aria-controls="example2"
+                                        rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">Article
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">Categories
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">User
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">Created_at
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">Update_at
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                        aria-label="Rendering engine: activate to sort column ascending">Action
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($articles as $article)
                                     <tr style="text-align: center">
                                         <td class="sorting_1">{{$article->a_id}}</td>
-                                        <td><a href="administrator/article/{{$article->a_id}}">{{$article->a_title}}</a></td>
+                                        <td><a href="administrator/article/{{$article->a_id}}">{{$article->a_title}}</a>
+                                        </td>
                                         <td>{{$article->category->c_name}}</td>
                                         <td>{{$article->user->u_name}}</td>
                                         <td>{{$article->created_at}}</td>
                                         <td>{{$article->updated_at}}</td>
                                         <td>
-                                            <a href="administrator/article/update/{{$article->a_id}}" class="glyphicon glyphicon-pencil"></a>
-                                            <a href="administrator/article/delete/{{$article->a_id}}" class="glyphicon glyphicon-remove"
+                                            <a href="administrator/article/update/{{$article->a_id}}"
+                                               class="glyphicon glyphicon-pencil"></a>
+                                            <a href="administrator/article/delete/{{$article->a_id}}"
+                                               class="glyphicon glyphicon-remove"
                                                style="padding: 20px"></a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
+                                <tfoot>
+                                {{$articles->links()}}
+                                </tfoot>
                             </table>
                         </div>
                     </div>

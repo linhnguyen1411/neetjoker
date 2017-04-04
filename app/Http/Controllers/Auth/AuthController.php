@@ -18,8 +18,7 @@ class AuthController extends Controller
 {
     //
     public function getcheckMail(){
-
-        return view('admin.lock');
+       return view('admin.lock');
     }
     public function postcheckMail(Request $request){
         $this->validate($request,
@@ -39,13 +38,13 @@ class AuthController extends Controller
                     if ($level == 1) {
                         return redirect('administrator/login/auth?email=' . $authEmail);
                     } elseif ( $level != 1) {
-                        return redirect('administrator')->with(['flash_level' => 'danger', 'flash_message' => 'Bạn không phải là quản trị viên!']);
+                        return redirect('user/login/auth?email='.$authEmail);
                     } else {
 
                     }
                 }
             }
-        return redirect('administrator')->with(['flash_level' => 'danger', 'flash_message' => 'Email không chính xác!']);
+        return redirect('user/login')->with(['flash_level' => 'danger', 'flash_message' => 'Email không chính xác!']);
      }
     public function getcheckPass(){
         if (isset($_GET['email'])){
@@ -53,7 +52,6 @@ class AuthController extends Controller
             foreach ($email as $e){
                 $name = $e->u_name;
                 $avatar ='admin/avatar/'. $e->u_avatar;
-
                 return view('admin.login',['name'=>$name,'avatar'=>$avatar,'email'=>$_GET['email']]);
             }
         }
@@ -75,5 +73,32 @@ class AuthController extends Controller
     public function logout(){
         Auth::logout();
         return view('admin.lock');
+    }
+    public function getcheckUser(){
+        if (isset($_GET['email'])){
+            $email = User::where('u_email',$_GET['email'])->get();
+            foreach ($email as $e){
+                $name = $e->u_name;
+                $avatar ='admin/avatar/'. $e->u_avatar;
+                return view('admin.user',['name'=>$name,'avatar'=>$avatar,'email'=>$_GET['email']]);
+            }
+        }
+    }
+    public function postcheckUser(Request $request){
+        $login = array(
+            'u_email'=>$_GET['email'],
+            'u_pass'=>$request->u_pass,
+        );
+        if (Auth::attempt($login)){
+            return redirect('');
+        }
+        else{
+            return back()->with(['flash_message'=>'Mật khẩu không chính xác? Nếu không phải bạn, hãy logout!']);
+        }
+
+    }
+    public function userLogout(){
+        Auth::logout();
+        return redirect('')->with(['flash_message'=>'Hẹn gặp lại!']);
     }
 }

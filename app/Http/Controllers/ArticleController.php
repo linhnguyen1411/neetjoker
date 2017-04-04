@@ -13,7 +13,7 @@ class ArticleController extends Controller
 {
     //
     public function getList(){
-        $articles = Article::all();
+        $articles = Article::paginate(5);
         return view('admin.article.list',['articles'=>$articles]);
     }
     public function getArticle($id){

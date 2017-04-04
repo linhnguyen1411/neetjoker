@@ -8,13 +8,13 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <base href="{{asset('')}}"/>
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/admin/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="admin/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="public/admin/dist/css/AdminLTE.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +27,7 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
-        <a href="index2.html"><b>NEET</b> Joker</a>
+        <a href=""><b>NEET</b> Joker</a>
     </div>
     <!-- User name -->
     <div class="lockscreen-name">Welcome <span style="color: red">{{$email}}</span></div>
@@ -68,7 +68,7 @@
         </form>
         <!-- /.lockscreen credentials -->
         <div class="lockscreen-image" style="top:-5px ;left: -25px">
-            <img src="{{$avatar}}" alt="User Image">
+            <img src="public/{{$avatar}}" alt="User Image">
         </div>
     </div>
     <!-- /.lockscreen-item -->
@@ -86,8 +86,8 @@
 <!-- /.center -->
 
 <!-- jQuery 2.2.3 -->
-<script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="public/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="public/admin/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="admin/index" class="logo">
+    <a href="" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>N</b>J</span>
         <!-- logo for regular state and mobile devices -->
-        <img src="front/images/neetjoker.png">
+        <img src="public/front/images/neetjoker.png">
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -32,7 +32,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            <img src="public/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Support Team
@@ -45,7 +45,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="public/admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             AdminLTE Design Team
@@ -57,7 +57,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="admin/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="public/admin/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Developers
@@ -69,7 +69,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="public/admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Sales Department
@@ -81,7 +81,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="admin/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="public/admin/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Reviewers
@@ -215,13 +215,13 @@
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="admin/avatar/{{Auth::user()->u_avatar}}" class="user-image" alt="User Image">
+                        <img src="public/admin/avatar/{{Auth::user()->u_avatar}}" class="user-image" alt="User Image">
                         <span class="hidden-xs">{{Auth::user()->u_name}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="admin/avatar/{{Auth::user()->u_avatar}}" class="img-circle" alt="User Image">
+                            <img src="public/admin/avatar/{{Auth::user()->u_avatar}}" class="img-circle" alt="User Image">
 
                             <p>
                                 {{Auth::user()->u_name}}
@@ -249,7 +249,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="administrator/logout" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="public/administrator/logout" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

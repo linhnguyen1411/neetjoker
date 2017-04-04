@@ -1,7 +1,7 @@
 <div id="slider-flexslider" class="slider flexslider" style="width: 1200px; height: 400px;">
     <ul class="slides">
         <li>
-            <img src="front/images/slider-flex/0018.jpg" alt="0018" title="0018"/>
+            <img src="public/front/images/slider-flex/0018.jpg" alt="0018" title="0018"/>
             <div class="slider-caption caption-right">
                 <h2>A CLEAN CORPORATE THEME</h2>
                 <h4></h4>
@@ -14,7 +14,7 @@
             </div>
         </li>
         <li>
-            <img src="front/images/slider-flex/0031.jpg" alt="0031" title="0031"/>
+            <img src="public/front/images/slider-flex/0031.jpg" alt="0031" title="0031"/>
             <div class="slider-caption caption-right">
                 <h2>LOVE IT, ENJOY IT</h2>
                 <h4></h4>
@@ -27,7 +27,7 @@
             </div>
         </li>
         <li>
-            <img src="front/images/slider-flex/0033.jpg" alt="003" title="003"/>
+            <img src="public/front/images/slider-flex/0033.jpg" alt="003" title="003"/>
             <div class="slider-caption caption-right">
                 <h2>MULTIPURPOSE THEME</h2>
                 <h4></h4>
@@ -46,7 +46,6 @@
         $('#slider-flexslider.flexslider img.attachment-full').css('width', '1200px').css('height', '400px');
 
         var flex_caption_hide = function (slider) {
-            console.log(slider);
             var currSlideElement = slider;
             var caption_speed = 400;
             var width = parseInt($('.slider-caption', currSlideElement).outerWidth());

@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler
 {
@@ -42,9 +43,21 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        if ($e instanceof TokenMismatchException) {
+            // redirect to form an example of how i handle mine
+            return redirect($request->fullUrl())->with(
+                'csrf_error',
+                "Opps! Seems you couldn't submit form for a longtime. Please try again"
+            );
+        }
+        elseif ($e instanceof \ReflectionException OR $e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException)
+        {
+            return response(view('front.404error'),404);
+        }
+
+        return parent::render($request, $e);
     }
 
     /**

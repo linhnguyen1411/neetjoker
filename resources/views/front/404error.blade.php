@@ -43,7 +43,7 @@
     <link rel="stylesheet" id="google-fonts-css"
           href="http://fonts.googleapis.com/css?family=Oswald%7CDroid+Sans%7CPlayfair+Display%7COpen+Sans+Condensed%3A300%7CRokkitt%7CShadows+Into+Light%7CAbel%7CDamion%7CMontez&amp;ver=3.4.2"
           type="text/css" media="all"/>
-    <link rel="stylesheet" href="public/front/css/font-awesome.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href='front/css/font-awesome.css' type='text/css' media='all'/>
 
     <!-- JAVASCRIPTs -->
     <script type="text/javascript" src="public/front/js/jquery.js"></script>
@@ -64,9 +64,6 @@
     <script type="text/javascript" src="public/front/js/jquery.model.js"></script>
 
 </head>
-<!-- END HEAD -->
-
-<!-- START BODY -->
 <body class="no_js responsive stretched">
 
 <!-- START BG SHADOW -->
@@ -75,27 +72,39 @@
     <!-- START WRAPPER -->
     <div id="wrapper" class="group">
 
-        <!-- START HEADER -->
-    @include('front.layout.header')
-        <!-- END HEADER -->
-    {{--@include('front.layout.slider')--}}
-    <!-- START CONTENT -->
-    @yield('content')
-    <!-- END CONTENT -->
+        <div id="header" class="group">
+            <div class="group inner">
+                <!-- START LOGO -->
+                <div id="logo" class="group">
+                    <a href="" title="NEET Joker"><img src="public/front/images/neetjoker.png" title="Pink Rio"
+                                                       alt="Pink Rio"/></a>
+                </div>
+                <!-- END LOGO -->
 
-        <!-- START FOOTER -->
-    @include('front.layout.footer')
-    <!-- END FOOTER -->
+                <div id="sidebar-header" class="group">
+                    <div class="widget-first widget yit_text_quote">
+                        <blockquote class="text-quote-quote">&#8220;Keep your face towards the sunshine and shadows will
+                            fall behind you.&#8221;</blockquote>
+                        <cite class="text-quote-author">WALT WHITMAN</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="primary" class="sidebar-no">
+            <div class="inner group">
+                <!-- START CONTENT -->
+                <div id="content-index" class="content group">
+                    <img class="error-404-image group" src="public/front/images/features/404.png" title="Error 404" alt="404"/>
+                    <div class="error-404-text group">
+                        <p>We are sorry but the page you are looking for does not exist.<br/>You could <a
+                                    href="">return
+                                to the home page</a></p>
+                    </div>
+                </div>
+                <!-- END CONTENT -->
+            </div>
+        </div>
     </div>
-    <!-- END WRAPPER -->
 </div>
-<!-- END BG SHADOW -->
-@yield('script')
-@yield('test')
-<script type="text/javascript" src="public/front/js/jquery.custom.js"></script>
-<script type="text/javascript" src="public/front/js/contact.js"></script>
-<script type="text/javascript" src="public/front/js/jquery.mobilemenu.js"></script>
-
 </body>
-<!-- END BODY -->
-</html>
+@include('front.layout.footer')

@@ -19,9 +19,9 @@
                     <div class="portfolios hentry work group">
                         <div class="work-thumbnail">
                             <div class="nozoom">
-                                <img src="front/images/projects/0061-770x368.jpg" alt="0061" title="0061" />
+                                <img src="public/front/images/projects/0061-770x368.jpg" alt="0061" title="0061" />
                                 <div class="overlay">
-                                    <a class="overlay_img" href="front/images/projects/0061.jpg" rel="lightbox" title="Love"></a>
+                                    <a class="overlay_img" href="public/front/images/projects/0061.jpg" rel="lightbox" title="Love"></a>
                                     <a class="overlay_project" href="project.html"></a>
                                     <span class="overlay_title">Love</span>
                                 </div>
@@ -45,9 +45,9 @@
                     <div class="portfolios hentry work group">
                         <div class="work-thumbnail">
                             <div class="nozoom">
-                                <img src="front/images/projects/0081-770x368.jpg" alt="0081" title="0081" />
+                                <img src="public/front/images/projects/0081-770x368.jpg" alt="0081" title="0081" />
                                 <div class="overlay">
-                                    <a class="overlay_img" href="front/images/projects/0081.jpg" rel="lightbox" title="Steep This!"></a>
+                                    <a class="overlay_img" href="public/front/images/projects/0081.jpg" rel="lightbox" title="Steep This!"></a>
                                     <a class="overlay_project" href="project.html"></a>
                                     <span class="overlay_title">Steep This!</span>
                                 </div>
@@ -70,9 +70,9 @@
                     <div class="portfolios hentry work group">
                         <div class="work-thumbnail">
                             <div class="nozoom">
-                                <img src="front/images/projects/0081-770x368.jpg" alt="0081" title="0081" />
+                                <img src="public/front/images/projects/0081-770x368.jpg" alt="0081" title="0081" />
                                 <div class="overlay">
-                                    <a class="overlay_img" href="front/images/projects/0081.jpg" rel="lightbox" title="Steep This!"></a>
+                                    <a class="overlay_img" href="public/front/images/projects/0081.jpg" rel="lightbox" title="Steep This!"></a>
                                     <a class="overlay_project" href="project.html"></a>
                                     <span class="overlay_title">Steep This!</span>
                                 </div>
@@ -95,9 +95,9 @@
                     <div class="portfolios hentry work group">
                         <div class="work-thumbnail">
                             <div class="nozoom">
-                                <img src="front/images/projects/0081-770x368.jpg" alt="0081" title="0081" />
+                                <img src="public/front/images/projects/0081-770x368.jpg" alt="0081" title="0081" />
                                 <div class="overlay">
-                                    <a class="overlay_img" href="front/images/projects/0081.jpg" rel="lightbox" title="Steep This!"></a>
+                                    <a class="overlay_img" href="public/front/images/projects/0081.jpg" rel="lightbox" title="Steep This!"></a>
                                     <a class="overlay_project" href="project.html"></a>
                                     <span class="overlay_title">Steep This!</span>
                                 </div>

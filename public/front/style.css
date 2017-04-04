@@ -53,7 +53,7 @@ h6, h6 a, h6 span { font-size:12px; line-height: 12px; }
 .content ol { margin-left:40px; }
 i, em { font-style:italic; }
 strong { font-weight:bold; }
-.content blockquote { background:url('front/images/cite.png') no-repeat 45px 25px; padding:35px; }
+.content blockquote { background:url('public/front/images/cite.png') no-repeat 45px 25px; padding:35px; }
 .content blockquote p { padding-left: 45px; }        
 .border-line { height:1px; background:#CFCFCF; width:100%; clear:both; margin:1.2em 0; }
 dt { font-weight:bold; }
@@ -78,7 +78,7 @@ p, li, address, dd, blockquote, td, th, a,
 body, h1, h2, h3, h4, h5, h6, p, dl, ul, ol {
     color: #585555;
     font-family: 'Droid Sans', 'Verdana', 'Arial', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
 }
 code, pre { background-color: #E8EBEC; border: 1px dotted #CFCFCF; color: #333333; font: 13px/18px Consolas,"Courier New",Courier,monospace; padding: 0 5px; }
@@ -175,7 +175,7 @@ html { min-height:101% }
 .menu-select select { width:100%; border:1px solid #ddd; background:none; -webkit-appearance: none; padding:8px 10px; cursor:pointer; font-family:'Rokkitt', sans-serif; color:#373636; font-size:14px; position:relative; z-index:1; }
 .gecko .menu-select select { width:120%; }
 .menu-select select option { background:none; width:100%; }
-.menu-select .arrow-icon { position:absolute; height:100%; width:100%; background:#d8dbdb url('front/images/menu-select-arrow.png') no-repeat 95% center; top:0; }
+.menu-select .arrow-icon { position:absolute; height:100%; width:100%; background:#d8dbdb url('images/menu-select-arrow.png') no-repeat 95% center; top:0; }
 
 
 #header div.menu { }

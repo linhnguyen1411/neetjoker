@@ -17,12 +17,14 @@
                             <!-- post meta -->
                             <div class="meta group">
                                 <p class="date">{{ date_format(date_create($post->created_at), "d/m/Y h:i:s ") }}</p>
-                                <p class="author"><span>by <a href="#" title="Posts by Nicola Mustone" rel="author">{{$post->u_name}}</a></span>
+                                <p class="author"><span>by <a title="Posts by {{$post->u_name}}"
+                                                              rel="author">{{$post->u_name}}</a></span>
                                 </p>
-                                <p class="categories"><span>In:<a href="{{$post->cate_seo}}" title="View all posts in {{$post->cate_name}}"rel="category tag">{{$post->cate_name}}</a>,
-                                <a href="{{$post->cate_seo}}/{{$post->c_seo}}" title="View all posts in {{$post->c_name}}"rel="category tag">{{$post->c_name}}</a></span>
+                                <p class="categories"><span>In: <a title="Posts in {{$post->cate_name}}"rel="category tag">{{$post->cate_name}}</a>,
+                                        <a href="{{$post->cate_seo}}/{{$post->c_seo}}" title="View all posts in {{$post->c_name}}" rel="category tag">{{$post->c_name}}</a></span>
                                 </p>
-                                <p class="comments"><span><a href="article#respond" title="Comment on Section shortcodes &amp; sticky posts!">No comments</a></span>
+                                <p class="comments"><span><a href="article#respond"
+                                                             title="Comment on Section shortcodes &amp; sticky posts!">No comments</a></span>
                                 </p>
                             </div>
                             <!-- post featured -->
@@ -60,56 +62,61 @@
             <!-- END CONTENT -->
             <!-- START SIDEBAR -->
             <div id="sidebar-blog-sidebar" class="sidebar group">
-                <div class="widget-first widget recent-posts">
-                    <h3>Tin tức</h3>
-                    <div class="recent-post group">
-                        @foreach($tintuc as $tt)
-                            <div class="hentry-post group">
-                                <div class="thumb-img"><img src="public/upload/article/{{$tt->a_thumbnail}}" alt="001"
-                                                            title="001"/></div>
-                                <div class="text">
-                                    <a href="article/{{$tt->a_id}}" title="Section shortcodes &amp; sticky posts!"
-                                       class="title">{{$tt->a_title}}</a>
-                                    <p>{{$tt->a_description}}</p>
+                @if(isset($tintuc))
+                    <div class="widget-first widget recent-posts">
+                        <h3>Tin tức</h3>
+                        <div class="recent-post group">
+                            @foreach($tintuc as $tt)
+                                <div class="hentry-post group">
+                                    <div class="thumb-img"><img src="public/upload/article/{{$tt->a_thumbnail}}" alt="001"
+                                                                title="001"/></div>
+                                    <div class="text">
+                                        <a href="article/{{$tt->a_id}}" title="Section shortcodes &amp; sticky posts!"
+                                           class="title">{{$tt->a_title}}</a>
+                                        <p>{{$tt->a_description}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="widget-first widget recent-posts">
-                    <h3>Tin game</h3>
-                    <div class="recent-post group">
-                        @foreach($tingame as $tg)
-                            <div class="hentry-post group">
-                                <div class="thumb-img"><img src="public/upload/article/{{$tg->a_thumbnail}}" alt="001"
-                                                            title="001"/></div>
-                                <div class="text">
-                                    <a href="article/{{$tg->a_id}}" title="Section shortcodes &amp; sticky posts!"
-                                       class="title">{{$tg->a_title}}</a>
-                                    <p>{{$tg->a_description}}</p>
+                @endif
+                @if(isset($tingame))
+                    <div class="widget-first widget recent-posts">
+                        <h3>Tin game</h3>
+                        <div class="recent-post group">
+                            @foreach($tingame as $tg)
+                                <div class="hentry-post group">
+                                    <div class="thumb-img"><img src="public/upload/article/{{$tg->a_thumbnail}}" alt="001"
+                                                                title="001"/></div>
+                                    <div class="text">
+                                        <a href="article/{{$tg->a_id}}" title="Section shortcodes &amp; sticky posts!"
+                                           class="title">{{$tg->a_title}}</a>
+                                        <p>{{$tg->a_description}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="widget-first widget recent-posts">
-                    <h3>Blog</h3>
-                    <div class="recent-post group">
-                        @foreach($blog as $b)
-                            <div class="hentry-post group">
-                                <div class="thumb-img"><img src="public/upload/article/{{$b->a_thumbnail}}" alt="001"
-                                                            title="001"/></div>
-                                <div class="text">
-                                    <a href="article/{{$b->a_id}}" title="Section shortcodes &amp; sticky posts!"
-                                       class="title">{{$b->a_title}}</a>
-                                    <p>{{$b->a_description}}</p>
+                @endif
+                @if(isset($blog))
+                    <div class="widget-first widget recent-posts">
+                        <h3>Blog</h3>
+                        <div class="recent-post group">
+                            @foreach($blog as $b)
+                                <div class="hentry-post group">
+                                    <div class="thumb-img"><img src="public/upload/article/{{$b->a_thumbnail}}" alt="001"
+                                                                title="001"/></div>
+                                    <div class="text">
+                                        <a href="article/{{$b->a_id}}" title="Section shortcodes &amp; sticky posts!"
+                                           class="title">{{$b->a_title}}</a>
+                                        <p>{{$b->a_description}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
-
         </div>
     </div>
     <div class="sidebar-no">
@@ -134,7 +141,7 @@
                                 @foreach($photos as $photo)
                                     <?php $count++ ?>
                                     @if($count%4==0)
-                                        <li  class="brandidentity logodesign one-fourth last">
+                                        <li class="brandidentity logodesign one-fourth last">
                                             <div class="internal_page_item internal_page_item_gallery">
                                                 <div class="overlay_a">
                                                     <img src="public/upload/images/{{$photo->i_preview}}" alt="0092"
@@ -189,4 +196,5 @@
 
     </div>
 @endsection
+
 

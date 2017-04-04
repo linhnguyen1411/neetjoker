@@ -27,10 +27,10 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
-        <a href=""><b>NEET</b> Joker</a>
+        <a href="index2.html"><b>NEET</b> Joker</a>
     </div>
     <!-- User name -->
-    <div class="lockscreen-name">Who are you ?</div>
+    <div class="lockscreen-name">Welcome <span style="color: green">{{$email}}</span> </div>
     @if(count($errors) > 0)
         @foreach($errors->all() as $err)
             <script>
@@ -47,16 +47,15 @@
     <div class="lockscreen-item">
         <!-- lockscreen image -->
         <div class="lockscreen-image">
-            <img src="public/admin/dist/img/anonymous.jpg" alt="User Image">
+            <img src="public/{{$avatar}}" alt="User Image">
         </div>
         <!-- /.lockscreen-image -->
 
         <!-- lockscreen credentials (contains the form) -->
-        <form class="lockscreen-credentials" action="administrator/auth" method="post">
+        <form class="lockscreen-credentials" action="user/login/auth?email={{$email}}" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="input-group">
-                <input type="email" name="u_email" class="form-control" placeholder="Your Email">
-
+                <input type="password" name="u_pass" class="form-control" placeholder="Your Password">
                 <div class="input-group-btn">
                     <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
                 </div>
@@ -67,10 +66,10 @@
     </div>
     <!-- /.lockscreen-item -->
     <div class="help-block text-center">
-        Enter your Email to retrieve your session
+        Enter your Password of {{$email}}
     </div>
     <div class="text-center">
-        <a href="">Or get out of here</a>
+        <a href="../">Or get out of here</a>
     </div>
     <div class="lockscreen-footer text-center">
         Copyright &copy;2017 <b><a href="http://almsaeedstudio.com" class="text-black"> NEET Joker </a></b><br>

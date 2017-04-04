@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="admin/avatar/{{Auth::user()->u_avatar}}" class="img-circle" alt="User Image">
+                <img src="public/admin/avatar/{{Auth::user()->u_avatar}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
 

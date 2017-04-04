@@ -15,21 +15,14 @@
 
 Route::get('/', 'MainController@getIndex');
 Route::get('article/{id}','IndexArticleController@getArticle');
-
-Route::get('photos',function (){
-    return view('front.photograph');
-});
-
-Route::get('about_us',function (){
-    return view('front.aboutus');
-});
-
-Route::get('contact_us',function (){
-    return view('front.contact');
-});
-
-
-
+Route::get('photograph','PhotographController@getPhoto');
+Route::get('contact_us','ContactController@getContact');
+Route::get('about_us','AboutUsController@getAbout');
+Route::get('user/login','Auth\AuthController@getcheckMail');
+Route::get('user/login/auth','Auth\AuthController@getcheckUser');
+Route::post('user/login/auth','Auth\AuthController@postcheckUser');
+Route::get('user/logout','Auth\AuthController@userLogout');
+Route::get('error','MainController@getError');
 Route::get('video',function (){
     return view('front.video');
 });
@@ -134,3 +127,5 @@ Route::group(['prefix' => 'administrator'], function () {
     });
 });
 
+Route::get('{cate}','MasterController@getCateGroup');
+Route::get('{cate}/{c}','MasterController@getCategories');

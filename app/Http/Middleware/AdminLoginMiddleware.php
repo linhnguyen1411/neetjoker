@@ -15,11 +15,11 @@ class AdminLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()){
+        if (Auth::check()&& Auth::user()->u_roles ==1){
                 return $next($request);
         }
         else{
-            return redirect('administrator/login')->with(['flash_message'=>'Bạn phải đăng nhập']);
+            return redirect('error')->with(['flash_message'=>'Bạn không có quyền truy cập']);
         }
     }
 }

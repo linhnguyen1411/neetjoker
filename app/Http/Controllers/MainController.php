@@ -28,4 +28,7 @@ class MainController extends Controller
         $photos = Images::all();
         return view('front.blog',['cate_group'=>$cate_group,'categories'=>$categories,'posts'=>$posts,'tintuc'=>$tintuc,'tingame'=>$tingame,'blog'=>$blog,'photos'=>$photos]);
     }
+    public function getError(){
+        return view('front.404error');
+    }
 }
