@@ -101,4 +101,50 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('')->with(['flash_message'=>'Hẹn gặp lại!']);
     }
+
+    public function postRegister(Request $request){
+        $this->validate($request,
+        [
+            'u_passAgn' =>'same:u_pass',
+            'rules'=>'required'
+        ],
+        [
+            'u_passAgn.same'=>'Mật khẩu chưa trùng khớp.',
+            'rules.required'=>'Bạn phải đồng ý với các điều khoản của website!'
+        ]);
+        $u= new User;
+        $u->u_birthday = $request->u_birthday;
+        $u->u_phone = $request->u_phone;
+        $u->u_gender = $request->u_gender;
+        $u->u_pass = bcrypt($request->u_pass);
+        $u->u_email = $request->u_email;
+        $u->u_roles = 4;
+        $u->u_name =$request->u_name;
+        $u->remember_token = $request->_token;
+        if ($request->hasFile('u_avatar')) {
+            $file = $request->file('u_avatar');
+            $format = $file->getClientOriginalExtension();
+            if ($format != 'jpg' && $format != 'png' && $format != 'jpeg') {
+                return redirect('users/registration')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);
+            }
+            $name = $file->getClientOriginalName();
+            $avatar = str_random(4) . "_" . $name;
+            while (file_exists("public/admin/avatar/" . $avatar)) {
+                $avatar = str_random(4) . "_" . $name;
+            }
+            $file->move("public/admin/avatar/", $avatar);
+            $u->u_avatar = $avatar;
+        } else {
+            $u->u_avatar = "example.png";
+        }
+        $u->save();
+        $login = array(
+            'u_email'=>$request->u_email,
+            'u_pass'=>$request->u_pass
+        );
+        if ($u->save()){
+            Auth::attempt($login);
+            return redirect('');
+        }
+    }
 }

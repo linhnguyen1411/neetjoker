@@ -21,6 +21,16 @@
                                        placeholder="{{$cate_groups->cate_name}}">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-2 control-label">Appear</label>
+                            <div class="col-sm-10">
+                                @if($cate_groups->appear ==1)
+                                <input type="checkbox" name="appear" checked> Yes
+                                @else
+                                <input type="checkbox" name="appear" > Yes
+                                @endif
+                            </div>
+                        </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-info " >Update</button>

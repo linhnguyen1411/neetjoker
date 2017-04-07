@@ -48,6 +48,10 @@
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                         aria-label="Platform(s): activate to sort column ascending"
+                                        style="width: 100px;text-align: center">Appear
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                        aria-label="Platform(s): activate to sort column ascending"
                                         style="width: 100px;text-align: center">Seo
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
@@ -71,6 +75,13 @@
                                     <tr style="text-align: center">
                                         <td class="sorting_1">{{$ctg->cate_id}}</td>
                                         <td>{{$ctg->cate_name}}</td>
+                                        <td>
+                                        @if($ctg->appear ==1)
+                                        Yes
+                                        @else
+                                        No
+                                        @endif
+                                        </td>
                                         <td>{{$ctg->cate_seo}}</td>
                                         <td>{{$ctg->created_at}}</td>
                                         <td>{{$ctg->updated_at}}</td>

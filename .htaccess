@@ -4,7 +4,9 @@
     </IfModule>
 
     RewriteEngine On
-
+    ErrorDocument 404 http://localhost/neetjoker/error/404.html
+    ErrorDocument 403 http://localhost/neetjoker/error/404.html
+    Options All -Indexes
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
@@ -18,3 +20,10 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
+<Files .htaccess>
+
+    Order Allow,Deny
+
+    Deny from all
+
+</Files>

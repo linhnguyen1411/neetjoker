@@ -69,7 +69,7 @@
         Enter your Password of {{$email}}
     </div>
     <div class="text-center">
-        <a href="../">Or get out of here</a>
+        <a href="">Or get out of here</a>
     </div>
     <div class="lockscreen-footer text-center">
         Copyright &copy;2017 <b><a href="http://almsaeedstudio.com" class="text-black"> NEET Joker </a></b><br>

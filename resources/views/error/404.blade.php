@@ -43,7 +43,7 @@
     <link rel="stylesheet" id="google-fonts-css"
           href="http://fonts.googleapis.com/css?family=Oswald%7CDroid+Sans%7CPlayfair+Display%7COpen+Sans+Condensed%3A300%7CRokkitt%7CShadows+Into+Light%7CAbel%7CDamion%7CMontez&amp;ver=3.4.2"
           type="text/css" media="all"/>
-    <link rel='stylesheet' href='front/css/font-awesome.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='public/front/css/font-awesome.css' type='text/css' media='all'/>
 
     <!-- JAVASCRIPTs -->
     <script type="text/javascript" src="public/front/js/jquery.js"></script>
@@ -62,7 +62,33 @@
     <script type="text/javascript" src="public/front/js/jquery.colorbox-min.js"></script>
     <script type="text/javascript" src="public/front/js/jquery.tweetable.js"></script>
     <script type="text/javascript" src="public/front/js/jquery.model.js"></script>
-
+    <script type="text/javascript">
+        var time = 15; //How long (in seconds) to countdown
+        var page = ""; //The page to redirect to
+        function countDown(){
+            time--;
+            gett("container").innerHTML = time;
+            if(time == 0){
+                window.location = page;
+            }
+        }
+        function gett(id){
+            if(document.getElementById) return document.getElementById(id);
+            if(document.all) return document.all.id;
+            if(document.layers) return document.layers.id;
+            if(window.opera) return window.opera.id;
+        }
+        function init(){
+            if(gett('container')){
+                setInterval(countDown, 1000);
+                gett("container").innerHTML = time;
+            }
+            else{
+                setTimeout(init, 50);
+            }
+        }
+        document.onload = init();
+    </SCRIPT>
 </head>
 <body class="no_js responsive stretched">
 
@@ -98,7 +124,7 @@
                     <div class="error-404-text group">
                         <p>We are sorry but the page you are looking for does not exist.<br/>You could <a
                                     href="">return
-                                to the home page</a></p>
+                                to the home page</a> or website will be redirected after <span style="color: red" id="container"></span> second(s). Have a nice day!</p>
                     </div>
                 </div>
                 <!-- END CONTENT -->

@@ -31,6 +31,12 @@
                                        placeholder="Input Name of Categories Groups">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-2 control-label">Appear</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" name="appear" checked> Yes
+                            </div>
+                        </div>
                         <!-- /.box-body -->
                         <a href="administrator/cate_group/list" class="btn btn-default" id="btn-cancel">Cancel</a>
                         <button type="submit" class="btn btn-info pull-right" >Insert</button>

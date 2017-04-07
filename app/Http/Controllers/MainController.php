@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class MainController extends Controller
 {
     public function getIndex(){
-        $cate_group = CategoriesGroup::orderBy('cate_id','DESC')->get();
+        $cate_group = CategoriesGroup::orderBy('cate_id','ASC')->where('appear',1)->get();
         $categories = Categories::all();
 
         $posts = DB::table('cate_group')
@@ -28,7 +28,5 @@ class MainController extends Controller
         $photos = Images::all();
         return view('front.blog',['cate_group'=>$cate_group,'categories'=>$categories,'posts'=>$posts,'tintuc'=>$tintuc,'tingame'=>$tingame,'blog'=>$blog,'photos'=>$photos]);
     }
-    public function getError(){
-        return view('front.404error');
-    }
+
 }

@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
         }
         elseif ($e instanceof \ReflectionException OR $e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException)
         {
-            return response(view('front.404error'),404);
+            return response(view('error.404'),404);
         }
 
         return parent::render($request, $e);
