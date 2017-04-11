@@ -65,10 +65,10 @@ class ArticleController extends Controller
             }
             $name = $file->getClientOriginalName();
             $image = str_random(4) . "_" . $name;
-            while (file_exists("upload/article/" . $image)) {
+            while (file_exists("public/upload/article/" . $image)) {
                 $avatar = str_random(4) . "_" . $name;
             }
-            $file->move("upload/article/", $image);
+            $file->move("public/upload/article/", $image);
             $insert->a_image = $image;
             $blog =Image::make(public_path("upload\\article\\".$image))->resize(816,282);//big image article.html
             $bigPic = "bigPic_".$image;
@@ -144,10 +144,10 @@ class ArticleController extends Controller
             }
             $name = $file->getClientOriginalName();
             $image = str_random(4) . "_" . $name;
-            while (file_exists("upload/article/" . $image)) {
+            while (file_exists("public/upload/article/" . $image)) {
                 $avatar = str_random(4) . "_" . $name;
             }
-            $file->move("upload/article/", $image);
+            $file->move("public/upload/article/", $image);
             $update->a_image = $image;
             $blog =Image::make(public_path("upload\\article\\".$image))->resize(816,282);//big image article.html
             $bigPic = "bigPic_".$image;

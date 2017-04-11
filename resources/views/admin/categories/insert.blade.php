@@ -20,22 +20,22 @@
                             @endforeach
                         </div>
                     @endif
-                        @if(session('thongbao'))
-                            <div class="alert alert-success alert-dismissible" style="width: 100%">
-                                <i class="glyphicon glyphicon-ok"></i>
-                                {{session('thongbao')}}
-                            </div>
-                        @endif
+                    @if(session('thongbao'))
+                        <div class="alert alert-success alert-dismissible" style="width: 100%">
+                            <i class="glyphicon glyphicon-ok"></i>
+                            {{session('thongbao')}}
+                        </div>
+                    @endif
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="box-body">
                         <div class="form-group">
                             <label for="inputName" class="col-sm-3 control-label">Categories group</label>
                             <div class="col-sm-9">
-                               <select class="form-control select2-close-mask" name="cateGroup">
-                                   @foreach($cate_group as $ctg)
-                                   <option value="{{$ctg->cate_id}}">{{$ctg->cate_name}}</option>
-                                   @endforeach
-                               </select>
+                                <select class="form-control select2-close-mask" name="cateGroup">
+                                        @foreach($cate_group as $ctg)
+                                            <option value="{{$ctg->cate_id}}">{{$ctg->cate_name}}</option>
+                                        @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -53,9 +53,9 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                                <a href="administrator/categories/list" class="btn btn-default"
-                                   id="btn-cancel">Cancel</a>
-                                <button type="submit" class="btn btn-info pull-right">Insert</button>
+                            <a href="administrator/categories/list" class="btn btn-default"
+                               id="btn-cancel">Cancel</a>
+                            <button type="submit" class="btn btn-info pull-right">Insert</button>
                         </div>
                     </div>
                     <!-- /.box-footer -->

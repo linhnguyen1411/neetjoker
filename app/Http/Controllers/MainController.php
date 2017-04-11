@@ -22,7 +22,7 @@ class MainController extends Controller
         ->select('cate_group.*','categories.*','article.*','users.*')
         ->orderBy('article.highlight','desc')
         ->paginate(3);
-        $tintuc = Article::where('cate_id',7)->orderBy('created_at','DESC')->take(3)->get();
+        $tintuc = Article::where('cate_id',1)->orderBy('created_at','DESC')->take(3)->get();
         $tingame = Article::where('cate_id',2)->orderBy('created_at','DESC')->take(3)->get();
         $blog = Article::where('cate_id',3)->orderBy('created_at','DESC')->take(3)->get();
         $photos = Images::all();

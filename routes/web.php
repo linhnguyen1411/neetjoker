@@ -20,10 +20,13 @@ Route::get('contact_us','ContactController@getContact');
 Route::get('about_us','AboutUsController@getAbout');
 Route::get('user/login','Auth\AuthController@getcheckMail');
 //Route::get('user/registration','Auth\AuthController@getRegister');
-Route::post('user/registration','Auth\AuthController@postRegister');
-Route::get('user/login/auth','Auth\AuthController@getcheckUser');
-Route::post('user/login/auth','Auth\AuthController@postcheckUser');
-Route::get('user/logout','Auth\AuthController@userLogout');
+Route::group(['prefix'=>'user'],function (){
+
+    Route::post('registration','Auth\AuthController@postRegister');
+    Route::get('login/auth','Auth\AuthController@getcheckUser');
+    Route::post('login/auth','Auth\AuthController@postcheckUser');
+    Route::get('logout','Auth\AuthController@userLogout');
+});
 Route::get('videos','VideosController@getVideos');
 Route::group(['prefix'=>'error'],function (){
     Route::get('404.html','ErrorController@get404');
@@ -31,7 +34,6 @@ Route::group(['prefix'=>'error'],function (){
 Route::get('news',function (){
     return view('front.news');
 });
-
 Route::group(['prefix' => 'administrator'], function () {
     Route::get('login','Auth\AuthController@getcheckMail');
     Route::post('auth','Auth\AuthController@postcheckMail');
@@ -73,7 +75,7 @@ Route::group(['prefix' => 'administrator'], function () {
 
         Route::get('delete/{id}','CategoriesController@getDelete');
     });
-    Route::group(['prefix'=>'article','middleware'=>'adminLogin'],function(){
+    Route::group(['prefix'=>'article','middleware'=>'blogger'],function(){
 
         Route::get('{$id}','ArticleController@getArticle');
 
@@ -87,7 +89,7 @@ Route::group(['prefix' => 'administrator'], function () {
 
         Route::get('delete/{id}','ArticleController@getDelete');
     });
-    Route::group(['prefix'=>'images','middleware'=>'adminLogin'],function(){
+    Route::group(['prefix'=>'images','middleware'=>'blogger'],function(){
 
         Route::get('list','ImagesController@getList');
 

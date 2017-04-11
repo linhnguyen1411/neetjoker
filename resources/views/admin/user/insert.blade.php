@@ -26,11 +26,21 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="box-body">
                     <div class="form-group" style="width: 50%">
-                        <label for="inputName" class="col-sm-2 control-label">UserName</label>
-
+                        <label for="email" class="col-sm-2 control-label">
+                            Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" name="u_name"
-                                   placeholder="User Name">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select class="form-control" id="u_gender" name="u_gender">
+                                        <option value="1">Mr.</option>
+                                        <option value="2">Ms.</option>
+                                        <option value="3">Mrs.</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="u_name" name="u_name" placeholder="Name"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">
@@ -38,6 +48,13 @@
 
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="inputEmail" name="u_email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group" style="width: 50%">
+                        <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="phone" name="u_phone" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group" style="width: 50%">

@@ -67,7 +67,7 @@
 <!-- END HEAD -->
 
 <!-- START BODY -->
-<body class="no_js responsive stretched">
+<body class="no_js responsive stretched" onselectstart="return false" oncontextmenu="return false">
 
 <!-- START BG SHADOW -->
 <div class="bg-shadow">

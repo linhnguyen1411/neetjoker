@@ -19,7 +19,7 @@ class MasterController extends Controller
         if (count($cate_check) == 0) {
             return redirect('error/404.html');
         } else {
-            $cate_group = CategoriesGroup::orderBy('cate_id', 'DESC')->where('appear',1)->get();
+            $cate_group = CategoriesGroup::orderBy('cate_id', 'ASC')->where('appear',1)->get();
             $categories = Categories::all();
 
             $posts = DB::table('cate_group')
@@ -39,13 +39,13 @@ class MasterController extends Controller
                     return view('front.master', ['cate_group' => $cate_group, 'categories' => $categories, 'posts' => $posts, 'tingame' => $tingame, 'blog' => $blog, 'photos' => $photos]);
 
                 } elseif ($c->cate_id == 2) {
-                    $tintuc = Article::where('cate_id', 7)->orderBy('created_at', 'DESC')->take(3)->get();
+                    $tintuc = Article::where('cate_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
                     $blog = Article::where('cate_id', 3)->orderBy('created_at', 'DESC')->take(3)->get();
                     $photos = Images::all();
                     return view('front.master', ['cate_group' => $cate_group, 'categories' => $categories, 'posts' => $posts, 'tintuc' => $tintuc, 'blog' => $blog, 'photos' => $photos]);
 
                 } else {
-                    $tintuc = Article::where('cate_id', 7)->orderBy('created_at', 'DESC')->take(3)->get();
+                    $tintuc = Article::where('cate_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
                     $tingame = Article::where('cate_id', 2)->orderBy('created_at', 'DESC')->take(3)->get();
                     $photos = Images::all();
                     return view('front.master', ['cate_group' => $cate_group, 'categories' => $categories, 'posts' => $posts, 'tintuc' => $tintuc, 'tingame' => $tingame, 'photos' => $photos]);
@@ -56,12 +56,12 @@ class MasterController extends Controller
 
     public function getCategories($cate, $c)
     {
-        $cate_check = CategoriesGroup::where('cate_seo', $cate)->get();
+        $cate_check = CategoriesGroup::where('cate_seo', $cate)->where('appear',1)->get();
         $c_check = Categories::where('c_seo', $c)->get();
         if (count($cate_check) == 0 || count($c_check) == 0) {
             return redirect('error/404.html');
         } else {
-            $cate_group = CategoriesGroup::orderBy('cate_id', 'DESC')->get();
+            $cate_group = CategoriesGroup::orderBy('cate_id', 'DESC')->where('appear',1)->get();
             $categories = Categories::all();
             $posts = DB::table('cate_group')
                 ->join('categories', 'cate_group.cate_id', '=', 'categories.cate_id')
@@ -73,20 +73,20 @@ class MasterController extends Controller
                 ->paginate(3);
             $condition = Categories::where('c_seo', $c)->get();
             foreach ($condition as $c) {
-                if ($c->cate_group->cate_id == 7) {
+                if ($c->cate_group->cate_id == 1) {
                     $tingame = Article::where('cate_id', 2)->orderBy('created_at', 'DESC')->take(3)->get();
                     $blog = Article::where('cate_id', 3)->orderBy('created_at', 'DESC')->take(3)->get();
                     $photos = Images::all();
                     return view('front.master', ['cate_group' => $cate_group, 'categories' => $categories, 'posts' => $posts, 'tingame' => $tingame, 'blog' => $blog, 'photos' => $photos]);
 
                 } elseif ($c->cate_group->cate_id == 2) {
-                    $tintuc = Article::where('cate_id', 7)->orderBy('created_at', 'DESC')->take(3)->get();
+                    $tintuc = Article::where('cate_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
                     $blog = Article::where('cate_id', 3)->orderBy('created_at', 'DESC')->take(3)->get();
                     $photos = Images::all();
                     return view('front.master', ['cate_group' => $cate_group, 'categories' => $categories, 'posts' => $posts, 'tintuc' => $tintuc, 'blog' => $blog, 'photos' => $photos]);
 
                 } else {
-                    $tintuc = Article::where('cate_id', 7)->orderBy('created_at', 'DESC')->take(3)->get();
+                    $tintuc = Article::where('cate_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
                     $tingame = Article::where('cate_id', 2)->orderBy('created_at', 'DESC')->take(3)->get();
                     $photos = Images::all();
                     return view('front.master', ['cate_group' => $cate_group, 'categories' => $categories, 'posts' => $posts, 'tintuc' => $tintuc, 'tingame' => $tingame, 'photos' => $photos]);

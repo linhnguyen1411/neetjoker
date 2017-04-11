@@ -28,6 +28,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
+            @if(Auth::user()->u_roles ==1)
             <li class="treeview">
                 <a href="#">
                     <i class="glyphicon glyphicon-edit"></i> <span>Slider</span>
@@ -124,6 +125,32 @@
                     <li><a href="administrator/roles/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
                 </ul>
             </li>
+            @else
+                <li class="treeview">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-edit"></i> <span>Article</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="administrator/article/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                        <li><a href="administrator/article/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-picture"></i> <span>Images</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="administrator/images/list"><i class="glyphicon glyphicon-ok text-aqua"></i>List</a></li>
+                        <li><a href="administrator/images/insert"><i class="glyphicon glyphicon-plus text-aqua"></i>Insert</a></li>
+                    </ul>
+                </li>
+            @endif
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>

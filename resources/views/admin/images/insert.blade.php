@@ -21,9 +21,24 @@
                             @endforeach
                         </div>
                     @endif
+                        @if(session('thongbao'))
+                            <div class="alert alert-success alert-dismissible" style="width: 100%">
+                                <i class="glyphicon glyphicon-ok"></i>
+                                {{session('thongbao')}}
+                            </div>
+                        @endif
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="box-body">
-
+                        <div class="form-group">
+                            <label for="SelCate" class="col-sm-2 control-label">Categories</label>
+                            <div class="col-sm-10">
+                                <select name="SelCategories" id="SelCate">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->c_id}}">{{$category->c_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="title" class="col-sm-2 control-label">Title</label>
 
@@ -39,7 +54,13 @@
 
                                 <input type="file" name="Img" id="SelImg">
                                 <img src="" id="ImgPrev" name="Img"/>
-                                <i class="glyphicon glyphicon-info-sign" style="color: red">Chọn ảnh đại diện cho bài viết của bạn!</i>
+                                <i class="glyphicon glyphicon-info-sign" style="color: red">Chọn ảnh tải lên đi!</i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10">
+                                <input type="checkbox" name="i_highlight"> Highlight?
                             </div>
                         </div>
                         <!-- /.box-body -->

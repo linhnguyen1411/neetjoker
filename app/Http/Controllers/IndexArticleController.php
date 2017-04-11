@@ -13,7 +13,7 @@ class IndexArticleController extends Controller
 {
     //
     public function getArticle($id){
-        $cate_group = CategoriesGroup::orderBy('cate_id','DESC')->get();
+        $cate_group = CategoriesGroup::orderBy('cate_id','DESC')->where('appear',1)->get();
         $categories = Categories::all();
         $article = Article::find($id);
         $comment = Comment::where('a_id',$id)->get();

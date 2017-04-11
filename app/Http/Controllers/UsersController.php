@@ -42,6 +42,8 @@ class UsersController extends Controller
             ]);
 
         $users = new User;
+        $users->u_phone = $request->u_phone;
+        $users->u_gender = $request->u_gender;
         $users->u_name = $request->u_name;
         $users->u_email = $request->u_email;
         $users->u_pass = bcrypt($request->u_pass);
@@ -55,10 +57,10 @@ class UsersController extends Controller
             }
             $name = $file->getClientOriginalName();
             $avatar = str_random(4) . "_" . $name;
-            while (file_exists("admin/avatar/" . $avatar)) {
+            while (file_exists("public/admin/avatar/" . $avatar)) {
                 $avatar = str_random(4) . "_" . $name;
             }
-            $file->move("admin/avatar/", $avatar);
+            $file->move("public/admin/avatar/", $avatar);
             $users->u_avatar = $avatar;
         } else {
             $users->u_avatar = "example.png";
@@ -80,6 +82,12 @@ class UsersController extends Controller
         if (isset($request->u_name)){
             $update->u_name = $request->u_name;
         }
+        if (isset($request->u_gender)){
+            $update->u_gender = $request->u_gender;
+        }
+        if (isset($request->u_phone)){
+            $update->u_phone = $request->u_phone;
+        }
         if ($request->passreset == 'on') {
             $update->u_pass = bcrypt('123456');
         }
@@ -92,10 +100,10 @@ class UsersController extends Controller
                 }
                 $name = $file->getClientOriginalName();
                 $avatar = str_random(4) . "_" . $name;
-                while (file_exists("admin/avatar/" . $avatar)) {
+                while (file_exists("public/admin/avatar/" . $avatar)) {
                     $avatar = str_random(4) . "_" . $name;
                 }
-                $file->move("admin/avatar/", $avatar);
+                $file->move("public/admin/avatar/", $avatar);
                 $update->u_avatar = $avatar;
             }
         }

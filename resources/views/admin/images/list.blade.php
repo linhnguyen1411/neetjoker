@@ -44,11 +44,11 @@
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                         aria-label="Browser: activate to sort column ascending"
                                         style="width: 100px; text-align: center">
-                                        NAME
+                                        Title
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                         aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 100px;text-align: center">Seo
+                                        style="width: 100px;text-align: center">Image
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                         aria-label="Engine version: activate to sort column ascending"
@@ -67,20 +67,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {{--@foreach($cate_groups as $ctg)--}}
-                                    {{--<tr style="text-align: center">--}}
-                                        {{--<td class="sorting_1">{{$ctg->cate_id}}</td>--}}
-                                        {{--<td>{{$ctg->cate_name}}</td>--}}
-                                        {{--<td>{{$ctg->cate_seo}}</td>--}}
-                                        {{--<td>{{$ctg->created_at}}</td>--}}
-                                        {{--<td>{{$ctg->updated_at}}</td>--}}
-                                        {{--<td>--}}
-                                            {{--<a href="administrator/cate_group/update/{{$ctg->cate_id}}" class="">Update</a>--}}
-                                            {{--<a href="administrator/cate_group/delete/{{$ctg->cate_id}}" class=""--}}
-                                               {{--style="padding: 20px">Delete</a>--}}
-                                        {{--</td>--}}
-                                    {{--</tr>--}}
-                                {{--@endforeach--}}
+                                @foreach($image as $i)
+                                    <tr style="text-align: center">
+                                        <td class="sorting_1">{{$i->i_id}}</td>
+                                        <td>{{$i->i_title}}</td>
+                                        <td>
+                                        <img src="public/upload/images/{{$i->i_preview}}"/>
+                                        </td>
+                                        <td>{{$i->created_at}}</td>
+                                        <td>{{$i->updated_at}}</td>
+                                        <td>
+                                            <a href="administrator/images/update/{{$i->i_id}}" class="">Update</a>
+                                            <a href="administrator/images/delete/{{$i->i_id}}" class=""
+                                               style="padding: 20px">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

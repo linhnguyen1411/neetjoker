@@ -14,8 +14,16 @@
                 <cite class="text-quote-author">WALT WHITMAN</cite>
                 </br>
                 @if(Auth::check())
-                    Xin chào, <span style="color: red">{{Auth::user()->u_name}}</span>
-                    @if(Auth::user()->u_roles==1)
+                    Xin chào, <span style="color: red">
+                    @if(Auth::user()->u_gender ==1)
+                    Mr.
+                    @elseif(Auth::user()->u_gender ==2)
+                    Ms.
+                    @else(Auth::user()->u_gender ==3)
+                    Mrs.
+                    @endif
+                    {{Auth::user()->u_name}}</span>
+                    @if(Auth::user()->u_roles==1||Auth::user()->u_roles==3)
                     </br>
                     <a href="administrator/article/list">Đi tới trang admin?</a>|<a href="administrator/logout">Sign out</a>
                     @else
@@ -33,7 +41,6 @@
         <!-- START MAIN NAVIGATION -->
         <div class="menu classic">
             <ul id="nav" class="menu">
-
                 <li>
                     <a href="">HOME</a>
                 </li>

@@ -118,14 +118,14 @@
                                                 <div class="col-sm-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <select class="form-control" name="u_gender">
+                                                            <select class="form-control" id="u_gender" name="u_gender">
                                                                 <option value="1">Mr.</option>
                                                                 <option value="2">Ms.</option>
                                                                 <option value="3">Mrs.</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="u_name" placeholder="Name"/>
+                                                            <input type="text" class="form-control" id="u_name" name="u_name" placeholder="Name"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -134,7 +134,7 @@
                                                 <label for="email" class="col-sm-3 control-label">
                                                     Email</label>
                                                 <div class="col-sm-9">
-                                                    <input type="email" class="form-control" id="email" name="u_email"
+                                                    <input type="email" class="form-control" id="u_email" name="u_email"
                                                            placeholder="Email"/>
                                                 </div>
                                             </div>
@@ -142,7 +142,7 @@
                                                 <label for="mobile" class="col-sm-3 control-label">
                                                     Mobile</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" class="form-control" id="mobile" name="u_email"
+                                                    <input type="text" class="form-control" id="u_phone" name="u_phone"
                                                            placeholder="Mobile"/>
                                                 </div>
                                             </div>
@@ -150,7 +150,7 @@
                                                 <label for="password" class="col-sm-3 control-label">
                                                     Password</label>
                                                 <div class="col-sm-9">
-                                                    <input type="password" class="form-control" id="password" name="u_pass"
+                                                    <input type="password" class="form-control" id="u_pass" name="u_pass"
                                                            placeholder="Password"/>
                                                 </div>
                                             </div>
@@ -158,7 +158,7 @@
                                                 <label for="password" class="col-sm-3 control-label">
                                                     Password Again</label>
                                                 <div class="col-sm-9">
-                                                    <input type="password" class="form-control" id="password" name="u_passAgn"
+                                                    <input type="password" class="form-control" id="u_passAgn" name="u_passAgn"
                                                            placeholder="Password"/>
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@
                                                 <label for="password" class="col-sm-3 control-label">
                                                     Avatar</label>
                                                 <div class="col-sm-9">
-                                                    <input type="file" class="form-control"  name="u_avatar"
+                                                    <input type="file" class="form-control" id="u_avatar"  name="u_avatar"
                                                            /> Chọn hình đại diện
                                                 </div>
                                             </div>
@@ -195,31 +195,31 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div id="OR" class="hidden-xs">
-                                    OR
-                                </div>
+                               
                             </div>
                             <div class="col-md-4">
                                 <div class="row text-center sign-with">
-                                    <div class="col-md-12">
-                                        <h3>
-                                            Sign in with</h3>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="btn-group btn-group-justified">
-                                            <a href="#" class="btn btn-primary">Facebook</a> <a href="#"
-                                                                                                class="btn btn-danger">
-                                                Google</a>
-                                        </div>
-                                    </div>
+                                  <img src="public/front/images/neetjoker.png">
+                                  <h2>Chúc các bạn một ngày vui vẻ</h2>
+                                  <h4>Theo dõi chúng tôi tại</h4>
                                 </div>
+                                <div class="fb-follow" data-href="https://www.facebook.com/neetjokerdn/" data-layout="standard" data-width="270px" data-size="small" data-show-faces="true"></div>
+
+                                <div id="fb-root"></div>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="alert alert-danger hide">
 
+        </div>
+        <div class="alert alert-success hide">
+
+        </div>
         <div class="modal fade" id="rules" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -265,6 +265,13 @@
 <script src="public/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="public/admin/bootstrap/js/bootstrap.min.js"></script>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=262324097514857";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <script>
     $('#register').click(function () {
         $('#myModal').modal();
@@ -272,6 +279,62 @@
     $('#dieukhoan').click(function () {
         $('#rules').modal();
     })
+</script>
+<script>
+    $(document).ready(function(){
+
+        // Khi người dùng click Đăng ký
+        $('#register-btn').click(function(){
+
+            // Lấy dữ liệu
+            var data = {
+                u_name    : $('#u_name').val(),
+                u_pass    : $('#u_pass').val(),
+                u_email       : $('#u_email').val(),
+                u_gender    : $('#u_gender').val(),
+                u_phone    : $('#u_phone').val(),
+                u_avatar    : $('#u_avatar').val(),
+
+            };
+
+            // Gửi ajax
+            $.ajax({
+                type : "post",
+                dataType : "JSON",
+                url : "user/registration",
+                data : data,
+                success : function(result)
+                {
+                    // Có lỗi, tức là key error = 1
+                    if (result.hasOwnProperty('error') && result.error == '1'){
+                        var html = '';
+
+                        // Lặp qua các key và xử lý nối lỗi
+                        $.each(result, function(key, item){
+                            // Tránh key error ra vì nó là key thông báo trạng thái
+                            if (key != 'error'){
+                                html += '<li>'+item+'</li>';
+                            }
+                        });
+                        $('.alert-danger').html(html).removeClass('hide');
+                        $('.alert-success').addClass('hide');
+                    }
+                    else{ // Thành công
+                        $('.alert-success').html('Đăng ký thành công!').removeClass('hide');
+                        $('.alert-danger').addClass('hide');
+
+                        // 4 giay sau sẽ tắt popup
+                        setTimeout(function(){
+                            $('#myModal').modal('hide');
+                            // Ẩn thông báo lỗi
+                            $('.alert-danger').addClass('hide');
+                            $('.alert-success').addClass('hide');
+                        }, 4000);
+                    }
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>

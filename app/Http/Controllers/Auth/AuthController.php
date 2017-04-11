@@ -105,15 +105,24 @@ class AuthController extends Controller
     public function postRegister(Request $request){
         $this->validate($request,
         [
+            'u_name' => 'required|unique:users,u_name',
+            'u_email' => 'required|unique:users,u_email',
+            'u_pass' => 'min:6|required',
             'u_passAgn' =>'same:u_pass',
             'rules'=>'required'
         ],
         [
+            'u_name.required' => 'Bạn phải nhập vào username!',
+            'u_name.unique' => 'Username đã tồn tại!',
+            'u_email.required' => 'Bạn phải nhập vào email!',
+            'u_email.unique' => 'Email đã tồn tại, vui lòng chọn email khác!',
+            'u_pass.min' => 'Mật khẩu tối thiểu 6 kí tự.',
+            'u_pass.required' => 'Bạn phải nhập vào mật khẩu.',
             'u_passAgn.same'=>'Mật khẩu chưa trùng khớp.',
+            'u_passAgn.required'=>'Nhập lại mật khẩu.',
             'rules.required'=>'Bạn phải đồng ý với các điều khoản của website!'
         ]);
         $u= new User;
-        $u->u_birthday = $request->u_birthday;
         $u->u_phone = $request->u_phone;
         $u->u_gender = $request->u_gender;
         $u->u_pass = bcrypt($request->u_pass);
@@ -122,10 +131,11 @@ class AuthController extends Controller
         $u->u_name =$request->u_name;
         $u->remember_token = $request->_token;
         if ($request->hasFile('u_avatar')) {
+
             $file = $request->file('u_avatar');
             $format = $file->getClientOriginalExtension();
-            if ($format != 'jpg' && $format != 'png' && $format != 'jpeg') {
-                return redirect('users/registration')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);
+            if ($format != 'jpg' && $format != 'jpeg') {
+                return redirect('user/login')->with(['flash_level' => 'danger', 'flash_message' => 'File upload lên phải có định dạng sau jpg,png,jpeg']);
             }
             $name = $file->getClientOriginalName();
             $avatar = str_random(4) . "_" . $name;
